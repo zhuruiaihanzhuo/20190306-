@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+ 
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+        .table {
+                border: 1px solid #cad9ea;
+                color: #666;
+            }
+ 
+            .table th {
+                background-repeat: repeat-x;
+                height: 30px;
+            }
+ 
+            .table td,
+            .table th {
+                border: 1px solid #cad9ea;
+                padding: 0 1em 0;
+            }
+ 
+            .table tr.alter {
+                background-color: #f5fafe;
+            }
+    </style>
+	</head>
+ 
+	<body>
+		<table class="table">
+			<thead>
+				<th>日期</th>
+				<th>检点人</th>
+				<th>数量</th>
+				<th>部门</th>
+				<th>编号</th>
+			</thead>
+			<tbody>
+				
+				
+			</tbody>
+		</table>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+		var table = document.body.querySelector('tbody');
+		mui.plusReady(function(){
+			var jslst = $.ajax({
+				type:"post",
+				url:"",
+				async:true
+			});
+			for(var i=0;i<jslst.length;i++){
+				var tr = document.createElement('tr');
+				tr.innerHTML = "<td>"+jslst[i].id+"</td><td>"+jslst[i].name+"</td><td>"+jslst[i].age+"</td>";
+				table.appendChild(tr);
+			}
+		});
+		</script>
+	</body>
+ 
+</html>
