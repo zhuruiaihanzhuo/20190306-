@@ -40,6 +40,29 @@
     <if test="shebeibianhao !=null and !&quot;&quot;.equals(shebeibianhao)">and SHEBEIBIANHAO=#{shebeibianhao}</if>
     <if test="jiancharen !=null and !&quot;&quot;.equals(jiancharen)">or jiancharen=#{jiancharen}</if>
   </select>
+  
+   <insert id="add" parameterType="bean.XiaoFang" useGeneratedKeys="false">
+    INSERT INTO XIAOFANG
+    ( 
+    jiancharen,
+    bumen,
+    shebeibianhao,
+    sqshuliang,
+    sdshuliang,
+    beizhu,
+    date
+    )
+    VALUES
+    ( 
+    #{jiancharen},
+    #{bumen},
+    #{shebeibianhao},
+    #{sqshuliang},
+    #{sdshuliang},
+    #{beizhu},
+    #{date}
+    )
+  </insert>
 
 <!--   <select id="version" parameterType="long" resultType="int">
     SELECT version FROM user WHERE id = #{id,jdbcType=INTEGER}

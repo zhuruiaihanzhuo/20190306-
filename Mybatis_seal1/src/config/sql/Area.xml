@@ -20,24 +20,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="MieHuo">
+<mapper namespace="Area">
 
-  <resultMap type="bean.MieHuo" id="MieHuoResult">
+  <resultMap type="bean.Area" id="AreaResult">
   <id column="id" jdbcType="INTEGER" property="id"/>
-      <!-- <result column="jiancharen" jdbcType="VARCHAR" property="jiancharen"/>
-    <result column="bumen" jdbcType="VARCHAR" property="bumen"/>
-    <result column="shebeibianhao" jdbcType="VARCHAR" property="shebeibianhao"/>
-     <result column="shuliang" jdbcType="VARCHAR" property="shuliang"/>
-    <result column="beizhu" jdbcType="VARCHAR" property="beizhu"/>
-     <result column="date" jdbcType="TIMESTAMP" property="date"/> -->
+ 
   </resultMap>
 
-  <select id="queryAll"  parameterType="String" resultMap="MieHuoResult">
-    SELECT * FROM MIEHUO WHERE 1=1
-    <!-- <if test="_parameter !=null and !&quot;&quot;.equals(_parameter)">and SHEBEIBIANHAO=#{_parameter}</if> -->
-    
-    <if test="shebeibianhao !=null and !&quot;&quot;.equals(shebeibianhao)">and SHEBEIBIANHAO=#{shebeibianhao}</if>
-    <if test="jiancharen !=null and !&quot;&quot;.equals(jiancharen)">or SHULIANG=#{jiancharen}</if>
+  <select id="selectAreaById"  parameterType="int" resultMap="AreaResult">
+    SELECT * FROM Area WHERE id=#{id}
+  
   </select>
 
 

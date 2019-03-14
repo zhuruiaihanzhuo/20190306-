@@ -1,10 +1,2 @@
-/Test.class
-/XiaoFangDao.class
-/action
-/bean
 /config
-/dao
-/db
-/log4j.properties
-/struts.xml
-/util
+/bean

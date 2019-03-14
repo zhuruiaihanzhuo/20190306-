@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	function show(){
 	$.ajax({
 		url:'<%=path%>/miehuo/MieHuo_qurey',
-		type:"get",
+		type:"post",
 		dataType:"json",
 		success:function(data){
 		$('#dg1').datagrid('loadData',data.data);

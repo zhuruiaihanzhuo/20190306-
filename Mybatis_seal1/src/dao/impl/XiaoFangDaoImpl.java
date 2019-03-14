@@ -14,9 +14,29 @@ import db.DBA;
 public class XiaoFangDaoImpl implements XiaoFangDao {
 
 	@Override
-	public boolean addXiaoFang(XiaoFang xf) {
+	public boolean addXiaoFang(XiaoFang xFang) {
+			DBA dba=new DBA();
 		
-		return false;
+		SqlSession sqlSession=null;
+		try {
+		
+		sqlSession=	dba.getSqlSession();
+		System.out.println(xFang.getBeizhu()+"-------");
+		//通过sqlSession执行sql语句；
+		sqlSession.insert("XiaoFang.add",xFang);
+		sqlSession.commit();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			if (sqlSession !=null) {
+				sqlSession.close();
+			}
+			
+		}
+	
+		
+		return true;
 	}
 
 	@Override
@@ -41,12 +61,12 @@ public class XiaoFangDaoImpl implements XiaoFangDao {
 			}
 			
 		}
-		for (XiaoFang xiaoFang : xiaoFangList) {
+	/*	for (XiaoFang xiaoFang : xiaoFangList) {
 		    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	        
 	         
 			System.out.println(sdf.format(xiaoFang.getDate()));
-		}
+		}*/
 		
 		return xiaoFangList;
 	}

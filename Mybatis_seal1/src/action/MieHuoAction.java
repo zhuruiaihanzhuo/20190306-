@@ -21,7 +21,7 @@ public class MieHuoAction extends SuperAction {
 	private static final long serialVersionUID = 1L;
 
 	public String  qurey() {
-		System.out.println("---------------------------------------");
+	
 		MieHuoDao mh=new MieHuoDaoImpl();
 		String jiancharen  =request.getParameter("jiancharen");
 		String shebeibianhao =request.getParameter("shebeibianhao");
@@ -35,7 +35,7 @@ public class MieHuoAction extends SuperAction {
 		if (result !=null) {
 			session.setAttribute("result", jsonObject);
 			for (int i = 0; i < result.size(); i++) {
-				System.out.println(result.get(i));
+				
 			}
 			return "query_success";
 		}

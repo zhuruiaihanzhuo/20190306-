@@ -21,7 +21,9 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-  <!-- <settings>
+
+<!--   <settings>
+  <setting name="logImpl" value="STDOUT_LOGGING"/>
     <setting name="useGeneratedKeys" value="false"/>
     <setting name="useColumnLabel" value="true"/>
   </settings>
@@ -29,6 +31,9 @@
   <typeAliases>
     <typeAlias alias="UserAlias" type="org.apache.ibatis.submitted.complex_property.User"/>
   </typeAliases> -->
+<settings>
+  	<setting name="logImpl" value="LOG4J"/>
+ </settings>
 
   <environments default="development">
     <environment id="development">
@@ -37,9 +42,12 @@
       </transactionManager>
       <dataSource type="UNPOOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
+      <!--   <property name="url" value="jdbc:mysql://172.22.1.204:3306/qrcode_seal?autoReconnect=true&amp;useSSL=false"/> -->
         <property name="url" value="jdbc:mysql://localhost:3306/sh_test?autoReconnect=true&amp;useSSL=false"/>
         <property name="username" value="root"/>
         <property name="password" value="longnian0302.."/>
+       <!--  <property name="username" value="tosot"/>
+        <property name="password" value="gree@2017"/> -->
       </dataSource>
     </environment>
   </environments>
@@ -47,6 +55,9 @@
    <mappers>
     <mapper resource="config/sql/XiaoFang.xml"/>
     <mapper resource="config/sql/MieHuo.xml"/>
+    
+    <mapper resource="config/sql/Device.xml"/>
+    <mapper resource="config/sql/Area.xml"/>
   </mappers>  
 
 </configuration>

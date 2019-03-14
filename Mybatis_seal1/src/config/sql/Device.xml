@@ -20,26 +20,23 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="MieHuo">
+<mapper namespace="Device">
 
-  <resultMap type="bean.MieHuo" id="MieHuoResult">
+  <resultMap type="bean.Device" id="DeviceResult">
   <id column="id" jdbcType="INTEGER" property="id"/>
-      <!-- <result column="jiancharen" jdbcType="VARCHAR" property="jiancharen"/>
-    <result column="bumen" jdbcType="VARCHAR" property="bumen"/>
-    <result column="shebeibianhao" jdbcType="VARCHAR" property="shebeibianhao"/>
-     <result column="shuliang" jdbcType="VARCHAR" property="shuliang"/>
-    <result column="beizhu" jdbcType="VARCHAR" property="beizhu"/>
-     <result column="date" jdbcType="TIMESTAMP" property="date"/> -->
+  <association property="area" column="area_id" select="Area.selectAreaById"></association>
+  <association property="leixing" column="category_id" select="Area.selectAreaById"></association>
+ 
   </resultMap>
 
-  <select id="queryAll"  parameterType="String" resultMap="MieHuoResult">
-    SELECT * FROM MIEHUO WHERE 1=1
-    <!-- <if test="_parameter !=null and !&quot;&quot;.equals(_parameter)">and SHEBEIBIANHAO=#{_parameter}</if> -->
-    
-    <if test="shebeibianhao !=null and !&quot;&quot;.equals(shebeibianhao)">and SHEBEIBIANHAO=#{shebeibianhao}</if>
-    <if test="jiancharen !=null and !&quot;&quot;.equals(jiancharen)">or SHULIANG=#{jiancharen}</if>
+  <select id="selectDeviceById"  parameterType="int" resultMap="DeviceResult">
+    SELECT * FROM Device WHERE id=#{id}
+   
   </select>
-
+<select id="selectDevice"   parameterType="int"  resultMap="DeviceResult">
+    select * from  device d  LEFT JOIN area a ON d.area_id=1
+   
+  </select>
 
 
   <insert id="add" parameterType="bean.MieHuo" useGeneratedKeys="false">

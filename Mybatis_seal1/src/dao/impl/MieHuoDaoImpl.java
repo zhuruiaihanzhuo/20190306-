@@ -24,8 +24,9 @@ public class MieHuoDaoImpl implements MieHuoDao {
 		sqlSession=	dba.getSqlSession();
 		
 		//通过sqlSession执行sql语句；
-		sqlSession.selectList("MieHuo.add",mHuo);
+		sqlSession.insert("MieHuo.add",mHuo);
 		
+		sqlSession.commit();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,7 +55,7 @@ public class MieHuoDaoImpl implements MieHuoDao {
 		MieHuo mh=new MieHuo(jiancharen,shebeibianhao);
 		//通过sqlSession执行sql语句；
 		mieHuoList=sqlSession.selectList("MieHuo.queryAll",mh);
-		
+	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -68,7 +69,7 @@ public class MieHuoDaoImpl implements MieHuoDao {
 		    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	        
 	         
-			System.out.println(sdf.format(mieHuo.getDate()));
+			
 		}
 		
 		return mieHuoList;
