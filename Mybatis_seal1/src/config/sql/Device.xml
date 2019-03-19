@@ -37,6 +37,11 @@
     select * from  device d  LEFT JOIN area a ON d.area_id=1
    
   </select>
+  
+  <select id="selectDeviceByshebeibianhao"   parameterType="String"  resultMap="DeviceResult">
+    select * from  device where shebeibianhao=#{shebeibianhao}
+   
+  </select>
 
 
   <insert id="add" parameterType="bean.MieHuo" useGeneratedKeys="false">

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
+ 	<constant name="struts.action.extension" value="do" />
 	<package name="default" namespace="/" extends="struts-default"></package>
 	
 	<package name="xiaofang" namespace="/xiaofang" extends="json-default">
@@ -14,10 +15,23 @@
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	 <result name="query_success">/transit-jsp/miehuo-tr.jsp</result> 
 	  <result name="add_success" type="redirect">/show/miehuo.jsp</result> 
+	  <result type="json" name="checkByDate"><param name="root">object</param></result>
 	</action>
 	</package>
 	
+	<package name="device" namespace="/device" extends="json-default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	 <result  type="json" name="ok"></result>
+	  <result name="add_success" type="redirect">/show/miehuo.jsp</result> 
+	</action>
+	</package>
 	
+	<package name="login" namespace="/login" extends="struts-default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	 
+	  <result name="query_success" >/view/main/ezui.jsp</result> 
+	</action>
+	</package>
 	
 	<package name="students" namespace="/students" extends="default">
 	<action name="*_*" class="action.{1}Action" method="{2}">

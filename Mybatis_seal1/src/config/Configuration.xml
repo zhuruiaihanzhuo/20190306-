@@ -58,6 +58,7 @@
     
     <mapper resource="config/sql/Device.xml"/>
     <mapper resource="config/sql/Area.xml"/>
+     <mapper resource="config/sql/Users.xml"/>
   </mappers>  
 
 </configuration>

@@ -6,22 +6,22 @@ public class MieHuo {
 	private int id;
 	private String jiancharen;
 	private String bumen;
-	private String shebeibianhao;
+	private Device device_id;
 	private String shuliang;
 	private String beizhu;
 	private Date date;
-	
-	
+
+
 	public MieHuo() {
 		super();
 	}
 	
 
 	
-	public MieHuo(String jiancharen, String shebeibianhao) {
+	public MieHuo(String jiancharen) {
 		super();
 		this.jiancharen = jiancharen;
-		this.shebeibianhao = shebeibianhao;
+		
 	}
 
 
@@ -32,12 +32,12 @@ public class MieHuo {
 
 
 
-	public MieHuo(String jiancharen, String bumen, String shebeibianhao,
+	public MieHuo(String jiancharen, String bumen,Device device_id,
 			String shuliang, String beizhu, Date date) {
 		super();
 		this.jiancharen = jiancharen;
 		this.bumen = bumen;
-		this.shebeibianhao = shebeibianhao;
+		this.device_id=device_id;
 		this.shuliang = shuliang;
 		this.beizhu = beizhu;
 		this.date = date;
@@ -63,17 +63,23 @@ public class MieHuo {
 	public void setBumen(String bumen) {
 		this.bumen = bumen;
 	}
-	public String getShebeibianhao() {
+/*	public String getShebeibianhao() {
 		return shebeibianhao;
 	}
 	public void setShebeibianhao(String shebeibianhao) {
 		this.shebeibianhao = shebeibianhao;
-	}
+	}*/
 	public String getShuliang() {
 		return shuliang;
 	}
 	public void setShuliang(String shuliang) {
 		this.shuliang = shuliang;
+	}
+	public Device getDevice_id() {
+		return device_id;
+	}
+	public void setDevice_id(Device device_id) {
+		this.device_id = device_id;
 	}
 	public String getBeizhu() {
 		return beizhu;

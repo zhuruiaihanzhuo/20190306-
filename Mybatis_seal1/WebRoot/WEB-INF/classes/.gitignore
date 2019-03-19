@@ -1,2 +1,5 @@
+/servlet
+/action
 /config
 /bean
+/dao

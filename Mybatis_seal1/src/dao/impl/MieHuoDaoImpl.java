@@ -52,7 +52,7 @@ public class MieHuoDaoImpl implements MieHuoDao {
 		try {
 		
 		sqlSession=	dba.getSqlSession();
-		MieHuo mh=new MieHuo(jiancharen,shebeibianhao);
+		MieHuo mh=new MieHuo(jiancharen);
 		//通过sqlSession执行sql语句；
 		mieHuoList=sqlSession.selectList("MieHuo.queryAll",mh);
 	
@@ -73,6 +73,38 @@ public class MieHuoDaoImpl implements MieHuoDao {
 		}
 		
 		return mieHuoList;
+	}
+
+
+
+	@Override
+	public int qureyByDate(String shebeibianhao) {
+		DBA dba=new DBA();
+		List <MieHuo> mieHuoList= new ArrayList<MieHuo>();
+		SqlSession sqlSession=null;
+		try {
+		
+		sqlSession=	dba.getSqlSession();
+		
+		//通过sqlSession执行sql语句；
+		mieHuoList=sqlSession.selectList("MieHuo.qureyByDate",shebeibianhao);
+		System.out.println(mieHuoList.size()+"55555555555555555555555555555555");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			if (sqlSession !=null) {
+				sqlSession.close();
+			}
+			
+		}
+		
+		if (mieHuoList.size()>0) {
+			return 1;
+		} else {
+			
+		}
+		return -1;
 	}
 
 }
