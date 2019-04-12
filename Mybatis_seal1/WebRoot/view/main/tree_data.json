@@ -1,0 +1,122 @@
+[
+    {
+        "id":"1",
+        "text":"系统管理"
+      
+    },
+    {
+        "id":"2",
+        "text":"设备点检管理",
+        
+     
+        "children":[
+            {
+                "id":"1",
+                "text":"安全科点检管理",
+              
+                "state":"closed",
+                "children":[
+                    {
+                        "id":"1",
+                        "text":"区域管理",
+                        "href":"pc/area_query.jsp"
+                    },
+                    {
+                        "id":"2",
+                       
+                        "text":"设备管理",
+                        "href":"pc/zjb/device_query.jsp"
+                    },
+                    {
+                        "id":"3",
+                        "text":"消火栓管理",
+                        "href":"show/xiaofang.jsp"
+                    },
+                    {
+                        "id":"4",
+                       
+                        "text":"灭火器管理",
+                        "href":"show/miehuo.jsp"
+                    },
+                       {
+                        "id":"5",
+                        
+                        "text":"设备类别管理",
+                        "href":"pc/zjb/category_query.jsp"
+                    }
+                    
+                ]
+                
+            },
+            {
+                "id":"2",
+             
+                "text":"xixi",
+                "href":"haha.action"
+            }
+        ]
+        
+    },
+    {
+        "id":"3",
+        "text":"生活管理",
+      
+        "state":"closed",
+        "children":[
+            {
+                "id":"1",
+                "text":"haha",
+                "href":"user.action"
+            },
+            {
+                "id":"2",
+                
+                "text":"注塑点检",
+                "href":"haha.action"
+            },
+             {
+                "id":"3",
+              
+                "text":"控制器点检",
+                "href":"haha.action"
+            },
+             {
+                "id":"2",
+                "iconCls":"icon-ok",
+                "text":"工艺管理",
+                "href":"haha.action"
+            }
+        ]
+        
+    }
+    , {
+                "id":"3",
+              	"state":"closed",
+                "text":"注塑模具管理",
+                "children":[ {
+                "id":"1",
+                "text":"haha",
+                "href":"user.action"
+            }]
+            },
+             {
+                "id":"4",
+              	"state":"closed",
+                "text":"控制器管理",
+                "children":[ {
+                "id":"1",
+                "text":"haha",
+                "href":"user.action"
+            }]
+            },
+             {
+                "id":"5",
+               	"state":"closed",
+                "text":"工艺管理",
+                "children":[ {
+                "id":"1",
+                "text":"haha",
+                "href":"user.action"
+            }]
+            }
+]

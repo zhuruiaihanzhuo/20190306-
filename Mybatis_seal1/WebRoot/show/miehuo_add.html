@@ -34,20 +34,20 @@
 	              <li class="mui-table-view-cell">
 	         
 					<span style="">1.检查人:&nbsp&nbsp&nbsp&nbsp</span>
-					<input id="user1"   required ">
+					<input id="user1"   required readonly="readonly">
 				
 	        </li>
 	     <li class="mui-table-view-cell">
 	         
 					<span style="">2.部门名称:  </span>
-					<input   required id="bumen" >
+					<input   required id="bumen" readonly="readonly" >
 				
 	        </li>
 	   
 			    <li class="mui-table-view-cell">
 	           
 					<span>3.设备编号:</span><span class="tip"></span>
-					<input  id="txtFireCode"  required   >
+					<input  id="txtFireCode"  required  readonly="readonly" >
 			
 	        </li>
 	         <li class="mui-table-view-cell">
@@ -67,7 +67,7 @@
 	     	  <div class="mui-button-row">
 	     	   
    <!--  <input type="submit"  value="确认提交"/>  -->
-  		 <input type="button" value="确认提交2" id="btn" style="background-color:blue;color: white;"/>
+  		 <input type="button" value="确认提交" id="btn" style="background-color:blue;color: white;"/>
         
     </div>
 		</form>	
@@ -113,8 +113,8 @@
 
 
 window.onload = function(){
-	/* $('#user1').val(QueryString("UserName"));
-	$('#bumen').val(QueryString("DeptName")); */
+	 $('#user1').val(QueryString("UserName"));
+	$('#bumen').val(QueryString("DeptName")); 
     showTime();     //网页一加载就调用showTime()函数；
 
     
@@ -170,6 +170,7 @@ $('#txtFireCode').blur(function(){
 		},
 		success: function () {
 			alert("录入成功");
+			location.reload() ;
 	    },
 	    error:function(){
 	    	alert("录入失败------");
@@ -209,7 +210,7 @@ $("#txtFireCode").focus(function(){
 	var result = pathName.substr(0,index+1); 
 	
 	return result; 
-}
+};
 
 
 function QueryString(name) {

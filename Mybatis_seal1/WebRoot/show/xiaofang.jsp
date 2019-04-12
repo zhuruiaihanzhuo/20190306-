@@ -16,8 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="themes/icon.css">
+<link rel="stylesheet" type="text/css" href="resource/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="resource/easyui/themes/icon.css">
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		};
 	function show1(){
 	$.ajax({
-		url:'../<%=path%>/xiaofang/XiaoFang_qurey',
+		url:'../<%=path%>/xiaofang/XiaoFang_qurey.do',
 		type:"post",
 		dataType:"json",
 		success:function(data){

@@ -6,7 +6,7 @@ public class XiaoFang {
 	private int id;
 	private String jiancharen;
 	private String bumen;
-	private String shebeibianhao;
+	private int device_id;
 	private String sqshuliang;
 	private String sdshuliang;
 	private String beizhu;
@@ -25,10 +25,10 @@ public class XiaoFang {
 
 
 
-	public XiaoFang(String jiancharen, String shebeibianhao) {
+	public XiaoFang(String jiancharen, int device_id) {
 		super();
 		this.jiancharen = jiancharen;
-		this.shebeibianhao = shebeibianhao;
+		this.device_id = device_id;
 	}
 
 
@@ -44,12 +44,12 @@ public class XiaoFang {
 
 
 
-	public XiaoFang(String jiancharen, String bumen, String shebeibianhao,
+	public XiaoFang(String jiancharen, String bumen, int device_id,
 			String sqshuliang, String sdshuliang, String beizhu, Date date) {
 		super();
 		this.jiancharen = jiancharen;
 		this.bumen = bumen;
-		this.shebeibianhao = shebeibianhao;
+		this.device_id = device_id;
 		this.sqshuliang = sqshuliang;
 		this.sdshuliang = sdshuliang;
 		this.beizhu = beizhu;
@@ -94,12 +94,23 @@ public class XiaoFang {
 	public void setBumen(String bumen) {
 		this.bumen = bumen;
 	}
-	public String getShebeibianhao() {
-		return shebeibianhao;
+	
+
+	public int getDevice_id() {
+		return device_id;
 	}
-	public void setShebeibianhao(String shebeibianhao) {
-		this.shebeibianhao = shebeibianhao;
+
+
+
+
+
+	public void setDevice_id(int device_id) {
+		this.device_id = device_id;
 	}
+
+
+
+
 
 	public String getBeizhu() {
 		return beizhu;

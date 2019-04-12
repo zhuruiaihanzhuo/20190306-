@@ -16,8 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<link rel="stylesheet" type="text/css" href="resource/easyui/css/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="resource/easyui/css/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="resource/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="resource/easyui/themes/icon.css">
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -29,28 +29,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="easyui-layout" data-options="fit:true">
 		<!-- <div data-options="region:'south',split:true " style="height: 150px"
 			title="south"></div> -->
-		<div data-options="region:'center',split:true, "
-			style="height: 150px" title="">
+		<div   id="mai"  class="easyui-tabs"  data-options="region:'center',split:true "
+			style="height: 150px">
 		
 
 
 		</div>
 		<div data-options="region:'west',split:true " style="width: 150px"
 			title="目录">
-			<ul id="tt" class="easyui-tree">
+			
+			<ul id="tt"></ul>
+			<!-- <ul class="easyui-tree" data-options="method:'get',animate:true,lines:true">
+			<li>
+		<span>系统管理</span>
+		<ul><li></li></ul>
+		</li>
     <li>
 		<span>设备点检管理</span>
 		<ul>
 			<li>
 				<span>安全科点检管理</span>
 				<ul>
-					
-						<li>区域管理</li>
-						<li>新增灭火器设备</li>
+						<li>
+												<a href="show/zjb/query_area.jsp" >区域管理</a>
+										
+										</li>
+						
+						 <li data-url="url:'show/zjb/query_area.jsp'">区域管理</li> 
+						<li>灭火器设备管理</li>
 					
 						
 					
-						<li>新增消防设备</li>
+						<li>消防设备管理</li>
 					</ul>
 	
 </ul>
@@ -61,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</li>
 		<li><span>招聘管理</span><ul><li></li></ul></li>
 		<li><span>后勤管理</span><ul><li></li></ul></li>
-		
+		 -->
 	
 		
 			</div>
@@ -95,12 +105,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div>Exit</div>
 		</div> -->
 </body>
-<script type="text/javascript" src="resource/easyui/js/jquery.min.js"></script>
-<script type="text/javascript" src="resource/easyui/js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="resource/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="resource/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript"
-	src="resource/easyui/js/datagrid-filter/datagrid-filter.js"></script>
+	src="resource/easyui/seal/datagrid-filter/datagrid-filter.js"></script>
 <script>
    		$(function(){
+   		
+   		$("#tt").tree({
+   			url: 'view/main/tree_data.json',
+				lines:true,
+				
+				onClick: function(node){
+				
+				if(node.href){
+				var tab=$('#mai').tabs("getTab",node.text);
+				if(tab){
+				$('#mai').tabs("select",node.text);
+			
+				}
+					else{
+					$('#mai').tabs('add',{
+					title: node.text,
+					content:'<iframe class="easyui-panel"  fit="true" src="'+node.href+'" style="padding:10px"></iframe>',
+					closable:true
+					});
+					}
+					}
+				}
+   		
+   		
+   		
+   		
+   		});
+   		
+   		
+   		
+   		
+   		
+   		
+   		
 			$(document).bind('contextmenu',function(e){
 				e.preventDefault();
 				$('#mm').menu('show', {

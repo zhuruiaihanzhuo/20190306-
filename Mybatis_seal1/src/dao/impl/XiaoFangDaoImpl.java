@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import bean.MieHuo;
 import bean.XiaoFang;
 import dao.XiaoFangDao;
 import db.DBA;
@@ -40,7 +41,7 @@ public class XiaoFangDaoImpl implements XiaoFangDao {
 	}
 
 	@Override
-	public List<XiaoFang> queryAll(String jiancharen, String shebeibianhao) {
+	public List<XiaoFang> queryAll() {
 	
 		DBA dba=new DBA();
 		List <XiaoFang> xiaoFangList= new ArrayList<XiaoFang>();
@@ -48,9 +49,9 @@ public class XiaoFangDaoImpl implements XiaoFangDao {
 		try {
 		
 		sqlSession=	dba.getSqlSession();
-		XiaoFang xf=new XiaoFang(jiancharen,shebeibianhao);
+		
 		//通过sqlSession执行sql语句；
-		xiaoFangList=sqlSession.selectList("XiaoFang.queryAll",xf);
+		xiaoFangList=sqlSession.selectList("XiaoFang.queryAll");
 		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -69,6 +70,36 @@ public class XiaoFangDaoImpl implements XiaoFangDao {
 		}*/
 		
 		return xiaoFangList;
+	}
+
+	@Override
+	public int qureyByDate(String shebeibianhao) {
+		DBA dba=new DBA();
+		List <XiaoFang> mieHuoList= new ArrayList<XiaoFang>();
+		SqlSession sqlSession=null;
+		try {
+		
+		sqlSession=	dba.getSqlSession();
+		
+		//通过sqlSession执行sql语句；
+		mieHuoList=sqlSession.selectList("XiaoFang.qureyByDate",shebeibianhao);
+		System.out.println(mieHuoList.size()+"55555555555555555555555555555555");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			if (sqlSession !=null) {
+				sqlSession.close();
+			}
+			
+		}
+		
+		if (mieHuoList.size()>0) {
+			return 1;
+		} else {
+			return -1;
+		}
+		
 	}
 
 }

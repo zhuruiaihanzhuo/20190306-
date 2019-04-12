@@ -50,8 +50,8 @@
     <div class="loginbox">
     
     <ul>
-    <li><input name="username" type="text" class="loginuser" value="admin" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="password" type="password" class="loginpwd" value="123" onclick="JavaScript:this.value=''"/></li>
+    <li><input name="username" type="text" class="loginuser"  onclick="JavaScript:this.value=''"/></li>
+    <li><input name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''"/></li>
     <li><input name="" type="submit" class="loginbtn" value="登录"   /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
     </ul>
     

@@ -24,34 +24,40 @@
 
   <resultMap type="bean.Area" id="AreaResult">
   <id column="id" jdbcType="INTEGER" property="id"/>
- 
+ <result column="shuoming"  property="shuoming"/>
   </resultMap>
-
+	<select id="selectArea"  parameterType="int" resultMap="AreaResult">
+    SELECT * FROM Area 
+  
+  </select>
   <select id="selectAreaById"  parameterType="int" resultMap="AreaResult">
-    SELECT * FROM Area WHERE id=#{id}
+    SELECT * FROM Area  WHERE id=#{id}
   
   </select>
 
+ <select id="selectAreaShuoming"  parameterType="int" resultMap="AreaResult">
+    SELECT * FROM Area 
+  
+  </select>
 
-
-  <insert id="add" parameterType="bean.MieHuo" useGeneratedKeys="false">
-    INSERT INTO MIEHUO
+  <insert id="add" parameterType="bean.Area" useGeneratedKeys="false">
+    INSERT INTO Area
     ( 
-    jiancharen,
-    bumen,
-    shebeibianhao,
-    shuliang,
+    lururen,
+    quyudaima,
+    shuoming,
+    zerenbumen,
     beizhu,
-    date
+    lurushijian
     )
     VALUES
     ( 
-    #{jiancharen},
-    #{bumen},
-    #{shebeibianhao},
-    #{shuliang},
+    #{lururen},
+    #{quyudaima},
+    #{shuoming},
+    #{zerenbumen},
     #{beizhu},
-    #{date}
+    #{lurushijian}
     )
   </insert>
 

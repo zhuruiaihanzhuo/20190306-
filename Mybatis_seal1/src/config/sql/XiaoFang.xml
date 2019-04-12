@@ -26,27 +26,33 @@
     <id column="id" jdbcType="INTEGER" property="id"/>
     <result column="jiancharen" jdbcType="VARCHAR" property="jiancharen"/>
     <result column="bumen" jdbcType="VARCHAR" property="bumen"/>
-    <result column="shebeibianhao" jdbcType="VARCHAR" property="shebeibianhao"/>
+    <result column="device_id"  property="device_id"/>
      <result column="sqshuliang" jdbcType="VARCHAR" property="sqshuliang"/>
      <result column="sdshuliang" jdbcType="VARCHAR" property="sdshuliang"/>
     <result column="beizhu" jdbcType="VARCHAR" property="beizhu"/>
      <result column="date" jdbcType="TIMESTAMP" property="date"/>
   </resultMap>
 
-  <select id="queryAll"  parameterType="String" resultMap="XiaoFangResult">
-    SELECT * FROM XIAOFANG WHERE 1=1
+  <select id="queryAll"   resultMap="XiaoFangResult">
+    SELECT * FROM XIAOFANG 
     <!-- <if test="_parameter !=null and !&quot;&quot;.equals(_parameter)">and SHEBEIBIANHAO=#{_parameter}</if> -->
     
-    <if test="shebeibianhao !=null and !&quot;&quot;.equals(shebeibianhao)">and SHEBEIBIANHAO=#{shebeibianhao}</if>
-    <if test="jiancharen !=null and !&quot;&quot;.equals(jiancharen)">or jiancharen=#{jiancharen}</if>
+  <!--   <if test="shebeibianhao !=null and !&quot;&quot;.equals(shebeibianhao)">and SHEBEIBIANHAO=#{shebeibianhao}</if>
+    <if test="jiancharen !=null and !&quot;&quot;.equals(jiancharen)">or jiancharen=#{jiancharen}</if> -->
   </select>
+  
+   <select id="qureyByDate"  parameterType="String" resultMap="XiaoFangResult">
+    select * from device a LEFT JOIN xiaofang d ON  a.id=d.device_id  where a.shebeibianhao=#{_parameter} and date_format(d.date,'%Y-%m')=date_format(now(),'%Y-%m') 
+    <!-- <if test="_parameter !=null and !&quot;&quot;.equals(_parameter)">and SHEBEIBIANHAO=#{_parameter}</if> -->
+  </select>
+  
   
    <insert id="add" parameterType="bean.XiaoFang" useGeneratedKeys="false">
     INSERT INTO XIAOFANG
     ( 
     jiancharen,
     bumen,
-    shebeibianhao,
+    device_id,
     sqshuliang,
     sdshuliang,
     beizhu,
@@ -56,7 +62,7 @@
     ( 
     #{jiancharen},
     #{bumen},
-    #{shebeibianhao},
+    #{device_id},
     #{sqshuliang},
     #{sdshuliang},
     #{beizhu},

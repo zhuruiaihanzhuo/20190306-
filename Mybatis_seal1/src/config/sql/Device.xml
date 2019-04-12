@@ -25,7 +25,7 @@
   <resultMap type="bean.Device" id="DeviceResult">
   <id column="id" jdbcType="INTEGER" property="id"/>
   <association property="area" column="area_id" select="Area.selectAreaById"></association>
-  <association property="leixing" column="category_id" select="Area.selectAreaById"></association>
+  <association property="leixing" column="category_id" select="Category.selectCategoryById"></association>
  
   </resultMap>
 
@@ -34,8 +34,9 @@
    
   </select>
 <select id="selectDevice"   parameterType="int"  resultMap="DeviceResult">
-    select * from  device d  LEFT JOIN area a ON d.area_id=1
-   
+  <!-- select * from  device d  LEFT JOIN area a  ON d.area_id=a.id  LEFT JOIN  category c ON d.category_id=c.id  -->
+  select *  from device 
+  <!--   select d.*,a.shuoming quyudaima,c.leibie  from  device d  LEFT JOIN area a  ON d.area_id=a.id  LEFT JOIN  category c ON d.category_id=c.id -->  
   </select>
   
   <select id="selectDeviceByshebeibianhao"   parameterType="String"  resultMap="DeviceResult">
@@ -44,24 +45,26 @@
   </select>
 
 
-  <insert id="add" parameterType="bean.MieHuo" useGeneratedKeys="false">
-    INSERT INTO MIEHUO
+  <insert id="add" parameterType="bean.Device" useGeneratedKeys="false">
+    INSERT INTO Device
     ( 
-    jiancharen,
-    bumen,
+    lururen,
+    shuoming,
     shebeibianhao,
-    shuliang,
+    category_id,
+    area_id,
     beizhu,
-    date
+    lurushijian
     )
     VALUES
     ( 
-    #{jiancharen},
-    #{bumen},
+    #{lururen},
+    #{shuoming},
     #{shebeibianhao},
-    #{shuliang},
+    #{leixing.id},
+    #{area.id},
     #{beizhu},
-    #{date}
+    #{lurushijian}
     )
   </insert>
 

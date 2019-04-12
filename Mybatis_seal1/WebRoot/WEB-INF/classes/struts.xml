@@ -8,6 +8,7 @@
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	 <result name="query_success">/transit-jsp/xiaofang-tr.jsp</result> 
 	   <result name="add_success" type="redirect">/show/xiaofang.jsp</result> 
+	   <result type="json" name="checkByDate"><param name="root">object</param></result>
 	</action>
 	</package>
 	
@@ -22,6 +23,8 @@
 	<package name="device" namespace="/device" extends="json-default">
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	 <result  type="json" name="ok"></result>
+	 <result type="json" name="query_success"><param name="root">object</param></result>
+	 
 	  <result name="add_success" type="redirect">/show/miehuo.jsp</result> 
 	</action>
 	</package>
@@ -30,6 +33,21 @@
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	 
 	  <result name="query_success" >/view/main/ezui.jsp</result> 
+	</action>
+	</package>
+	
+	<package name="area" namespace="/area" extends="json-default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	 <result name="add_success" type="redirect">/pc/area_query.jsp</result>
+	  <result type="json" name="query_success"><param name="root">object</param></result>
+	   <result type="json" name="queryShuoming_success"><param name="root">object2</param></result>
+	</action>
+	</package>
+	<package name="category" namespace="/category" extends="json-default">
+	<action name="*_*" class="action.{1}Action" method="{2}">
+	 <result name="add_success" type="redirect">/pc/area_query.jsp</result>
+	  <result type="json" name="query_success"><param name="root">object</param></result>
+	  <result type="json" name="queryLeibie_success"><param name="root">object2</param></result>
 	</action>
 	</package>
 	
