@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>设备</title>
+<title>菜单</title>
  <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=2.0" />
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -28,28 +28,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- 	<div class="easyui-layout" data-options="fit:true"> -->
 		
-					<div class="easyui-panel"  id="dg" data-options="fit:true,title:'<center>设备信息查询</center>',tools:'#tool'">
+					<div class="easyui-panel"  id="dg" data-options="fit:true,title:'<center>菜单查询</center>',tools:'#tool'">
 						<table id="dg1">
 							<thead>
 								<tr>
-									<th data-options="field:'lurushijian',align:'center',width:fixWidth(0.2),sortable:true">录入时间
+									<th data-options="field:'url',align:'center',width:fixWidth(0.2),sortable:true">路径
 										</th>
-										<th data-options="field:'shebeibianhao',align:'center',width:fixWidth(0.1),sortable:true">设备编号
+									<th data-options="field:'name',sortable:true,width:fixWidth(0.1),sortable:true">名称
 										</th>
-									 <th data-options="field:'lururen',sortable:true,width:fixWidth(0.1),sortable:true">录入人
-										</th>	
-									<th data-options="field:'shuoming',align:'center',width:fixWidth(0.1),sortable:true">说明
-										</th>
-									<th data-options="field:'area',sortable:true,order:'asc',width:fixWidth(0.1),sortable:true">区域</th>
-									 <th data-options="field:'leibie',sortable:true,order:'asc',width:fixWidth(0.1),sortable:true">设备类别</th>
-								<th data-options="field:'beizhu',align:'center',width:fixWidth(0.3),sortable:true">备注</th>
-								</tr>  
+									
 							</thead>
 						</table>
 		</div>
 		<div id="tool">
-		<a href="pc/zjb/device_add.jsp" class="icon-add"  title="添加设备"></a>
-		<a href="pc/zjb/device_query.jsp" class="icon-reload" ></a>
+		<a href="pc/user_auth/permissions_add.jsp" class="icon-add"  title="添加菜单"></a>
+		<a href="#" class="icon-reload" onclick="refresh()"></a>
 	</div>
 </body>
 <script type="text/javascript" src="js/easyUI/jquery.min.js"></script>
@@ -80,7 +73,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
         	
        
-
 
 	
     var dg1=$('#dg1').datagrid({
@@ -132,39 +124,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		};
 	function show(){
 	$.ajax({
-		url:'<%=path%>/device/Device_query.do',
+		url:'<%=path%>/permissions/Permissions_query.do',
 		type:"post",
 		dataType:"json",
 		success:function(data){
-		var data1=data.data;
-		var result=[];
-		 for ( var machine in data1) {
-		
-                var row_data = {
-                    lurushijian : data1[machine].lurushijian,
-                    shebeibianhao : data1[machine].shebeibianhao,
-                   lururen : data1[machine].lururen,
-                    shuoming : data1[machine].shuoming,
-                    area : data1[machine].area.shuoming,
-                    beizhu : data1[machine].beizhu,
-                    leibie : data1[machine].leixing.leibie
-                   
-                };
-               //因为html元素无法使用子对象.属性  ，所以先把需要的格式保存为集合，之后按照正常加载能够实现正常分页
-               result.push(row_data);
-               
-              
-               /*  $('#dg1').datagrid('appendRow',row_data); 
-                 */
-                } 
-               
-		$('#dg1').datagrid('loadData',result);
-		
-		
-		
-	
-		
-		}
+		$('#dg1').datagrid('loadData',data.data);
+		},
 	
 	});
 	}	

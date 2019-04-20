@@ -26,7 +26,7 @@
 
 <body style="background-color:#1c77ac; background-image:url(resource/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
 
-<form action="login/Users_qurey.do" method="post">
+<form action="login/Users_query.do" method="post">
 
     <div id="mainBody">
       <div id="cloud1" class="cloud"></div>

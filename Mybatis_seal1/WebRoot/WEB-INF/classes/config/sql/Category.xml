@@ -20,38 +20,39 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Users">
+<mapper namespace="Category">
 
-  <resultMap type="bean.Users" id="UsersResult">
-  <id column="uid" jdbcType="INTEGER" property="uid"/>
+  <resultMap type="bean.Category" id="CategoryResult">
+  <id column="id" jdbcType="INTEGER" property="id"/>
  
   </resultMap>
-
-  <select id="select"  parameterType="bean.Users" resultMap="UsersResult">
-    SELECT * FROM users WHERE username=#{username} and password=#{password}
+	<select id="selectCategory"  parameterType="int" resultMap="CategoryResult">
+    SELECT * FROM category
+  
+  </select>
+  <select id="selectCategoryById"  parameterType="int" resultMap="CategoryResult">
+    SELECT * FROM Category  WHERE id=#{id}
   
   </select>
 
 
 
-  <insert id="add" parameterType="bean.MieHuo" useGeneratedKeys="false">
-    INSERT INTO MIEHUO
+  <insert id="add" parameterType="bean.Category" useGeneratedKeys="false">
+    INSERT INTO Category
     ( 
-    jiancharen,
-    bumen,
-    shebeibianhao,
-    shuliang,
+    leibie,
+    zerendanwei,
+    yuanyin,
     beizhu,
-    date
+    lurushijian
     )
     VALUES
     ( 
-    #{jiancharen},
-    #{bumen},
-    #{shebeibianhao},
-    #{shuliang},
+    #{leibie},
+    #{zerendanwei},
+    #{yuanyin},
     #{beizhu},
-    #{date}
+    #{lurushijian}
     )
   </insert>
 

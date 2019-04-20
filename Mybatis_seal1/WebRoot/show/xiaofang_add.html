@@ -33,20 +33,20 @@
 	              <li class="mui-table-view-cell">
 	         
 					<span>1.检查人:&nbsp&nbsp&nbsp&nbsp</span>
-					<input id="user1" required name="jiancharen" readonly="readonly" >
+					<input id="user1" required name="jiancharen"  >
 				
 	        </li>
 	     <li class="mui-table-view-cell">
 	         
 					<span style="">2.部门名称:  </span>
-					<input  id="bumen"  required name="bumen" readonly="readonly">
+					<input  id="bumen"  required name="bumen" >
 				
 	        </li>
 	   
 			    <li class="mui-table-view-cell">
 	           
 						<span>3.设备编号:</span><span class="tip"></span>
-					<input id="txtFireCode"  required readonly="readonly" >
+					<input id="txtFireCode"  required  >
 			
 	        </li>
 	         <li class="mui-table-view-cell">
@@ -126,8 +126,16 @@ function show1(){
 
 
 var device_id;
-$('#txtFireCode').blur(function(){
-	   $.post("../DeviceServlet?shebeibianhao="+$(this).val(),function(data){
+$('#sqshuliang').focus(function(){
+	
+	  
+	
+	   
+});
+ $("#btn").click(function(){
+	 
+	 
+	 $.post("../DeviceServlet?shebeibianhao="+$('#txtFireCode').val(),function(data){
 		   
 		  
 		    if(data =="null"	)
@@ -141,6 +149,51 @@ $('#txtFireCode').blur(function(){
 					if(data.result=="1"){
 						 $(".tip").show().css("color","red").html("此设备本月已点检");
 						   $('#txtFireCode').val(null);
+					}else{
+						 if($("#txtFireCode").val()!=null&& "" != $("#txtFireCode").val() && $("#user1").val() !=null&&
+								 "" != $("#user1").val() && $("#sqshuliang").val() !=null&& "" != $("#sqshuliang").val()
+								 && $("#sdshuliang").val() !=null&& "" != $("#sdshuliang").val()){
+							 $.ajax({
+							type: "post",
+							 url:"../xiaofang/XiaoFang_add.do",
+							data:{
+							
+							shebeibianhao: $("#txtFireCode").val(),
+							jiancharen : $("#user1").val(),
+							beizhu : $("#beizhu").val(),
+							bumen :$("#bumen").val(),
+							sqshuliang :$("#sqshuliang").val(),
+							sdshuliang :$("#sdshuliang").val()
+							},
+							success: function () {
+								alert("录入成功");
+								location.reload() ;
+						    },
+						    error:function(){
+						    	alert("录入失败------");
+						    }
+							 });
+							 
+							 
+					/* 	$.post("../miehuo/MieHuo_add.do",
+							{
+							
+							shebeibianhao: $("#txtFireCode").val(),
+							jiancharen : $("#user1").val(),
+							beizhu : $("#beizhu").val(),
+							bumen :$("#bumen").val(),
+							shuliang :$("#shuliang").val()
+
+						},
+						function(data){
+							alert(device_id);
+						}
+						); */
+						 }
+						 else {
+								alert("请填写检查人或数量");
+							}
+						
 					}
 				   
 			   }); 
@@ -148,54 +201,12 @@ $('#txtFireCode').blur(function(){
 		   } 
 		   
 	   });	
-	
-	   
-});
- $("#btn").click(function(){
 	 
-	 if($("#txtFireCode").val()!=null&& "" != $("#txtFireCode").val() && $("#user1").val() !=null&&
-			 "" != $("#user1").val() && $("#sqshuliang").val() !=null&& "" != $("#sqshuliang").val()
-			 && $("#sdshuliang").val() !=null&& "" != $("#sdshuliang").val()){
-		 $.ajax({
-		type: "post",
-		 url:"../xiaofang/XiaoFang_add.do",
-		data:{
-		
-		shebeibianhao: $("#txtFireCode").val(),
-		jiancharen : $("#user1").val(),
-		beizhu : $("#beizhu").val(),
-		bumen :$("#bumen").val(),
-		sqshuliang :$("#sqshuliang").val(),
-		sdshuliang :$("#sdshuliang").val()
-		},
-		success: function () {
-			alert("录入成功");
-			location.reload() ;
-	    },
-	    error:function(){
-	    	alert("录入失败------");
-	    }
-		 });
-		 
-		 
-/* 	$.post("../miehuo/MieHuo_add.do",
-		{
-		
-		shebeibianhao: $("#txtFireCode").val(),
-		jiancharen : $("#user1").val(),
-		beizhu : $("#beizhu").val(),
-		bumen :$("#bumen").val(),
-		shuliang :$("#shuliang").val()
-
-	},
-	function(data){
-		alert(device_id);
-	}
-	); */
-	 }
-	 else {
-			alert("请填写检查人或数量");
-		}
+	 
+	 
+	 
+	 
+	
 }); 
 //聚焦警告消失
 $("#txtFireCode").focus(function(){

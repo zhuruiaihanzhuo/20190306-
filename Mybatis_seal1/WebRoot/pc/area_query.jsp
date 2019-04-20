@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div id="tool">
 		<a href="pc/add_area.jsp" class="icon-add"  title="添加区域"></a>
-		<a href="#" class="icon-reload" onclick="refresh()"></a>
+		<a href="pc/area_query.jsp" class="icon-reload" onclick="refresh()"></a>
 	</div>
 </body>
 <script type="text/javascript" src="js/easyUI/jquery.min.js"></script>

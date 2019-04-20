@@ -1,7 +1,25 @@
 [
     {
         "id":"1",
-        "text":"系统管理"
+        "text":"系统管理",
+       "children":[
+            {
+                "id":"1",
+                "text":"菜单管理",
+                "href":"pc/user_auth/permissions_query.jsp"
+            },
+            {
+                "id":"2",
+                
+                "text":"注塑点检",
+                "href":"haha.action"
+            }
+           
+        ]
+      
+      
+      
+      
       
     },
     {

@@ -29,9 +29,9 @@
 	</action>
 	</package>
 	
-	<package name="login" namespace="/login" extends="struts-default">
+	<package name="login" namespace="/login" extends="json-default">
 	<action name="*_*" class="action.{1}Action" method="{2}">
-	 
+	  <result type="json" name="queryAuth_success"><param name="root">object</param></result>
 	  <result name="query_success" >/view/main/ezui.jsp</result> 
 	</action>
 	</package>
@@ -51,15 +51,11 @@
 	</action>
 	</package>
 	
-	<package name="students" namespace="/students" extends="default">
-	<action name="*_*" class="action.{1}Action" method="{2}">
-	<result name="Students_query_success">/students/Students_query_success.jsp </result>
-	<result name="delete_success" type="chain">Students_query</result>
-	<result name="add_success" >/students/Students_add_success.jsp</result>
-	<result name="modify_success">/students/Students_modify.jsp</result>
-	<result name="save_success" >/students/Students_modify_success.jsp</result>
-	<result name="test_success">/students/test.jsp</result>
-	<result name="test2_success">/students/zzKqzLineView.jsp</result>
+	<package name="permissions" namespace="/permissions" extends="json-default">
+	<action name="*_*" class="action.user_auth.{1}Action" method="{2}">
+	 <result name="add_success" type="redirect">/pc/user_auth/permissions_query.jsp</result>
+	  <result type="json" name="query_success"><param name="root">object</param></result>
+	  <result type="json" name="queryByName_success"><param name="root">object2</param></result>
 	</action>
 	</package>
 </struts>    
