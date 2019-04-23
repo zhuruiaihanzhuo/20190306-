@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+
+import net.sf.json.JSONObject;
+
 import com.google.gson.Gson;
 
 import dao.DeviceDao;
@@ -44,7 +47,9 @@ public class DeviceServlet extends HttpServlet {
 	
 		
         String aString=gson.toJson(ddao.selectByShebeibianhao(shebeibianhao));
-		System.out.println("885885");
+    /*    JSONObject obj=new JSONObject();
+		obj.put("data",ddao.selectByShebeibianhao(shebeibianhao));*/
+		System.out.println(aString);
 
         out.print(aString);
         out.flush();

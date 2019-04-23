@@ -12,7 +12,7 @@ public class Device {
 		private String lururen;
 		private Timestamp lurushijian;
 		private String  beizhu;
-		
+		private String  url;
 		
 		
 		public Device() {
@@ -22,7 +22,7 @@ public class Device {
 		
 		
 		public Device(String shebeibianhao, String shuoming, Area area,Category leixing,
-				String lururen, Timestamp lurushijian, String beizhu) {
+				String lururen, Timestamp lurushijian, String beizhu,String url) {
 			super();
 			this.shebeibianhao = shebeibianhao;
 			this.shuoming = shuoming;
@@ -31,6 +31,19 @@ public class Device {
 			this.lururen = lururen;
 			this.lurushijian = lurushijian;
 			this.beizhu = beizhu;
+			this.url=url;
+		}
+
+
+		
+		public String getUrl() {
+			return url;
+		}
+
+
+
+		public void setUrl(String url) {
+			this.url = url;
 		}
 
 

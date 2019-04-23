@@ -54,7 +54,8 @@
     category_id,
     area_id,
     beizhu,
-    lurushijian
+    lurushijian,
+    url
     )
     VALUES
     ( 
@@ -64,7 +65,8 @@
     #{leixing.id},
     #{area.id},
     #{beizhu},
-    #{lurushijian}
+    #{lurushijian},
+    #{url}
     )
   </insert>
 

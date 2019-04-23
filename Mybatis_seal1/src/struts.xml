@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
- 	<constant name="struts.action.extension" value="do" />
-	<package name="default" namespace="/" extends="struts-default"></package>
 	
+ 	<constant name="struts.action.extension" value="do" />
+ 	
+	<package name="default" namespace="/" extends="struts-default"></package>
+	<include file="struts/struts-zk.xml"></include>
 	<package name="xiaofang" namespace="/xiaofang" extends="json-default">
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	 <result name="query_success">/transit-jsp/xiaofang-tr.jsp</result> 

@@ -20,53 +20,30 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Device">
+<mapper namespace="Drgfgzx1">
 
-  <resultMap type="bean.Device" id="DeviceResult">
+  <resultMap type="bean.zk.Drgfgzx1" id="Drgfgzx1Result">
   <id column="id" jdbcType="INTEGER" property="id"/>
-  <association property="area" column="area_id" select="Area.selectAreaById"></association>
-  <association property="leixing" column="category_id" select="Category.selectCategoryById"></association>
- 
+    <!--  <result column="device_id"  property="device_id"/> -->
+      <!-- <result column="jiancharen" jdbcType="VARCHAR" property="jiancharen"/>
+    <result column="bumen" jdbcType="VARCHAR" property="bumen"/>
+    <result column="shebeibianhao" jdbcType="VARCHAR" property="shebeibianhao"/>
+     <result column="shuliang" jdbcType="VARCHAR" property="shuliang"/>
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu"/>
+     <result column="date" jdbcType="TIMESTAMP" property="date"/> -->
   </resultMap>
 
-  <select id="selectDeviceById"  parameterType="int" resultMap="DeviceResult">
-    SELECT * FROM Device WHERE id=#{id}
-   
-  </select>
-<select id="selectDevice"   parameterType="int"  resultMap="DeviceResult">
-  <!-- select * from  device d  LEFT JOIN area a  ON d.area_id=a.id  LEFT JOIN  category c ON d.category_id=c.id  -->
-  select *  from device 
-  <!--   select d.*,a.shuoming quyudaima,c.leibie  from  device d  LEFT JOIN area a  ON d.area_id=a.id  LEFT JOIN  category c ON d.category_id=c.id -->  
-  </select>
   
-  <select id="selectDeviceByshebeibianhao"   parameterType="String"  resultMap="DeviceResult">
-    select * from  device where shebeibianhao=#{shebeibianhao}
-   
-  </select>
-
-
-  <insert id="add" parameterType="bean.Device" useGeneratedKeys="false">
-    INSERT INTO Device
+  <insert id="add" parameterType="bean.zk.Drgfgzx1" useGeneratedKeys="false">
+    INSERT INTO Drgfgzx1
     ( 
-    lururen,
-    shuoming,
-    shebeibianhao,
-    category_id,
-    area_id,
-    beizhu,
-    lurushijian,
-    url
+    lururen,lurushijian,device_id,bumen,beizhu,
+    one, two, three,four,five,six,seven,eight,nine
     )
     VALUES
     ( 
-    #{lururen},
-    #{shuoming},
-    #{shebeibianhao},
-    #{leixing.id},
-    #{area.id},
-    #{beizhu},
-    #{lurushijian},
-    #{url}
+    #{lururen},#{lurushijian},#{device_id.id},#{bumen},#{beizhu},
+    #{one},#{two},#{three},#{four},#{five},#{six},#{seven},#{eight},#{nine}
     )
   </insert>
 

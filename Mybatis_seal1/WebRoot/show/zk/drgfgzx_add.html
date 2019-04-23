@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>电热鼓风干燥箱点检</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link rel="stylesheet" href="../../css/mui/mui.min.css">
+		
+		
+		
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">电热鼓风干燥箱点检</h1>
+		</header>
+		<div class="mui-content">
+<form action="../xiaofang/XiaoFang_add" style="background-color: #99CCFF;" method="post">
+<div style="text-align: center;">
+  <span >检查人:&nbsp&nbsp</span><span  id ="user1" style="color:yellow"></span>
+  
+</div>
+<div style="text-align: center;font-size: 20px;margin: 10px;" id="bumen">物流管理部</div>
+ <div class="content1" >
+  			<div id="show" style="background-color: green; margin: 20px;" >显示时间的位置</div>
+</div>
+
+
+
+					
+	<ul class="mui-table-view"  style="background-color: #CCFFFF;">
+	     
+	      <li class="mui-table-view-cell">
+	          
+					<span>1.设备整体表面无灰尘，散热装置运行良好</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio1" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio1" type="radio" value="N">
+					</div>
+			</li>
+	    <li class="mui-table-view-cell">
+	          
+					<span>2.检查各漏电保护开关是否正常</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio2" type="radio" value="Y">
+					</div>
+				<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio2" type="radio" value="N">
+					</div>
+			
+	        </li> <li class="mui-table-view-cell">
+	          
+					<span>3.检查试验箱体内部无脏污，无试验物料残留，清洁整理</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio3" type="radio" value="Y">
+					</div>
+				<div class="mui-input-row mui-radio mui-left">
+						<label>否</label>
+						<input name="radio3" type="radio" value="N">
+					</div>
+			
+	        </li>
+	            </li> <li class="mui-table-view-cell">
+	          
+					<span>4.高温轴承定期加油，轴承无摩擦响声</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio4" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio4" type="radio" value="N">
+					</div>
+			
+	        </li> <li class="mui-table-view-cell">
+	          
+					<span>5.测试仪表通讯显示良好</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio5" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio5" type="radio" value="N">
+					</div>
+			
+	        </li> <li class="mui-table-view-cell">
+	          
+					<span>6.试验按钮良好</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio6" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio6" type="radio" value="N">
+					</div>
+			
+	        </li> 
+	        <li class="mui-table-view-cell">
+	          
+					<span>7.各禁锢螺钉状态良好</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio7" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio7" type="radio" value="N">
+					</div>
+			
+	        </li> <li class="mui-table-view-cell">
+	          
+					<span>8.各电器接线柱紧固</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio8" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>否</label>
+						<input name="radio8" type="radio" value="N">
+					</div>
+			
+	        </li> 
+	         <li class="mui-table-view-cell">
+	          
+					<span>9.风轮电机工作是否正常</span>
+					
+					<div class="mui-input-row mui-radio mui-left" >
+						<label>是</label>
+						<input name="radio9" type="radio" value="Y">
+					</div>
+					<div class="mui-input-row mui-radio mui-left">
+						<label>否</label>
+						<input name="radio9" type="radio" value="N">
+					</div>
+			
+	        </li> 
+	         <li class="mui-table-view-cell">
+	         
+					<span style="text-align:center;color:red;">故障异常描述(若有选项为否，异常描述必须填写)</span>
+					<textarea id="beizhu" rows="4"></textarea>
+				
+	        </li>
+	    </ul>
+	   
+	     	  <div class="mui-button-row">
+	     	   
+      <!--  <input type="submit" class="btn" value="确认提交"/> -->
+        <input type="button" value="确认提交" id="btndrg" style="background-color:blue;color: white;"/>
+    </div>
+		</form>	
+	
+	
+		</div>
+		
+		<div class="mui-slider">
+  <div class="mui-slider-group mui-slider-loop">
+    <!--支持循环，需要重复图片节点-->
+     <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="4.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="../../image/xiaofang/timg.jpg" style="height: 150px;" /></a></div>
+  
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
+  
+  </div>
+</div>
+<div>
+	<h4 style="text-align:center;color: red;">警告</h4>
+<p>1.其他仪表的操作请参看对应的操作说明书，并请特别注意除温控表的设定值、PID参数和做自整定外不可更改任何仪表的设置参数。</p>
+<p>2.标准要求为具体数据的，检验结果应记录具体数据；检验标准不是具体数据的，未发现异常记录OK，发现异常记录具体异常现象。</p>
+<p>3.值日（白班、夜班）必须每班对以上内容各仔细检查一次，并做好监测记录。</p>
+<p style="text-align:center;color:blue;">格力大松（宿迁）生活电器有限公司</p>
+</div>
+
+	</body>
+<script  src="../../js/jquery-1.8.2.min.js"  type="text/javascript"></script>
+<script src="../../js/jquery.validate-1.13.1.js"></script>
+<script src="../../js/mui/qingjs.js" type="text/javascript"></script>
+<script src="../../js/mui/zk/device_zk.js" type="text/javascript"></script>
+<script type="text/javascript">
+window.onload = function(){
+	$("#user1").html(decodeURIComponent(QueryString("username")));
+	$("#bumen").html(decodeURIComponent(QueryString("bumen")));
+	
+    showTime();     //网页一加载就调用showTime()函数；
+
+    
+  };
+
+</script>
+</html>

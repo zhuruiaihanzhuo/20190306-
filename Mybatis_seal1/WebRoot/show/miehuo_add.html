@@ -34,24 +34,24 @@
 	              <li class="mui-table-view-cell">
 	         
 					<span style="">1.检查人:&nbsp&nbsp&nbsp&nbsp</span>
-					<input id="user1"   required >
+					<input id="user1"   required readonly="readonly">
 				
 	        </li>
 	     <li class="mui-table-view-cell">
 	         
 					<span style="">2.部门名称:  </span>
-					<input   required id="bumen"  >
+					<input   required id="bumen" readonly="readonly" >
 				
 	        </li>
 	   
 			    <li class="mui-table-view-cell">
 	           
 					<span>3.设备编号:</span><span class="tip"></span>
-					<input  id="txtFireCode"  required   >
+					<input  id="txtFireCode"  required  readonly="readonly" >
 			
 	        </li>
 	         <li class="mui-table-view-cell">
-	         
+	         		
 					<span>4.数量:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
 					<input   required id="shuliang">
 				
@@ -157,7 +157,7 @@ var device_id;
 	 
 	 
 	 $.post("../DeviceServlet?shebeibianhao="+$("#txtFireCode").val(),function(data){
-		 alert($("#txtFireCode").val());
+		 
 		  
 		    if(data =="null"	)
 			{	
