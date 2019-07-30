@@ -42,12 +42,12 @@
       </transactionManager>
       <dataSource type="UNPOOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://172.22.1.204:3306/qrcode_seal?autoReconnect=true&amp;useSSL=false"/> 
+    <!--     <property name="url" value="jdbc:mysql://172.22.1.204:3306/qrcode_seal?autoReconnect=true&amp;useSSL=false"/> 
         <property name="username" value="tosot"/>
-        <property name="password" value="gree@2017"/> 
-         <!--  <property name="url" value="jdbc:mysql://localhost:3306/sh_test?autoReconnect=true&amp;useSSL=false"/>
+        <property name="password" value="gree@2017"/>  -->
+        <property name="url" value="jdbc:mysql://localhost:3306/sh_test?autoReconnect=true&amp;useSSL=false"/>
         <property name="username" value="root"/>
-        <property name="password" value="longnian0302.."/> -->
+        <property name="password" value="longnian0302.."/> 
        
       </dataSource>
     </environment>
@@ -63,6 +63,7 @@
      <mapper resource="config/sql/Category.xml"/>
      <mapper resource="config/sql/user_auth.xml"/>
      <mapper resource="config/sql/zk/Drgfgzx1.xml"/>
+     <mapper resource="config/sql/gy/MojuInfo.xml"/>
   </mappers>  
 
 </configuration>

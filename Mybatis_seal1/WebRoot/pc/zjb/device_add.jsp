@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		</tr>
 	    		<tr>
 	    			<td>录入人:</td>
-	    			<td><input class="easyui-textbox" type="text" id="lururen" data-options="required:true"></input></td>
+	    			<td><input class="easyui-textbox" type="text" id="lururen" data-options="required:true" readonly="readonly"></input></td>
 	    		</tr>
 	    		<tr>
 	    			<td>设备编号:</td>
@@ -152,8 +152,17 @@ function showArea(){
 	});
 	}	
 	
+	
+	
+	
+	
 	function showLeibie(){
-
+	
+	var user="<%=session.getAttribute("name")%>";	
+alert(user);
+	 if(user!="null"){
+	$("#lururen").val(user);
+	
 	$.ajax({
 		url:'<%=path%>/category/Category_queryLeibie.do',
 		type:"post",
@@ -168,15 +177,29 @@ function showArea(){
                     "id" : data1[machine].id,
                     "leibie" : data1[machine].leibie
                 });
-                  // alert("i==="+i+"==="+data1[i].shuoming+"==data1[machine].id="+data1[machine].id);
+                
                    $("#leibie").combobox("loadData", test);   
                   $("#leibie").combobox('setValue', data1[0].id);
-                 // $("#quyu").combobox('setValue', data1[0].shuoming);
+                
             
-               }
-            /*     $('#quyu').combobox('reload',row_data);} */
-	}
+               };}
+            
 	});
+	}
+
+	else{
+	 if (window.top!=null && window.top.document.URL!=document.URL){  
+            var urlStr = document.URL;  
+             var endIndex = urlStr.indexOf('xxxxxxxxxx');  
+             
+            urlStr = urlStr.substring(0, 40); 
+          
+          window.top.location= urlStr + "/login.jsp";  // 跳转到登录页  
+           
+        }};
+	
+
+	
 	}	
 	
 	

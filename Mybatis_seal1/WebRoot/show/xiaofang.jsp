@@ -34,9 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<tr>
 									<th data-options="field:'date',align:'center',width:fixWidth(0.2),sortable:true">检查日期
 										</th>
-									<th data-options="field:'jiancharen',sortable:true,width:fixWidth(0.1),sortable:true">检查人
+									<th data-options="field:'jiancharen',align:'center',width:fixWidth(0.1),sortable:true">检查人
 										</th>
-									<th data-options="field:'bumen',sortable:true,order:'asc',width:fixWidth(0.1),sortable:true">部门</th>
+									<th data-options="field:'bumen',align:'center',width:fixWidth(0.1),sortable:true">部门</th>
 									
 									<th data-options="field:'sqshuliang',align:'center',width:fixWidth(0.1),sortable:true">水枪
 										</th>
@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</th>
 									
 									
-									<th data-options="field:'shebeibianhao',align:'center',width:fixWidth(0.2),sortable:true">设备编号</th>
+									<th data-options="field:'device_id',align:'center',width:fixWidth(0.2),sortable:true">设备编号</th>
 								<th data-options="field:'beizhu',align:'center',width:fixWidth(0.3),sortable:true">备注</th>
 								</tr>
 							</thead>
@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		};
 	function show1(){
 	$.ajax({
-		url:'../<%=path%>/xiaofang/XiaoFang_qurey.do',
+		url:'<%=path%>/xiaofang/XiaoFang_qurey.do',
 		type:"post",
 		dataType:"json",
 		success:function(data){

@@ -61,6 +61,7 @@ public class XiaoFangAction extends SuperAction {
 			JSONObject jsonObject = new JSONObject();
 	        jsonObject.put("msg", "success");
 	        jsonObject.put("data", js.toString());
+	        System.out.println(jsonObject);
 			if (result !=null) {
 				session.setAttribute("result", jsonObject);
 			

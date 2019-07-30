@@ -24,6 +24,7 @@
 
   <resultMap type="bean.zk.Drgfgzx1" id="Drgfgzx1Result">
   <id column="id" jdbcType="INTEGER" property="id"/>
+  <association property="device_id" column="device_id" select="Device.selectDeviceById"></association>
     <!--  <result column="device_id"  property="device_id"/> -->
       <!-- <result column="jiancharen" jdbcType="VARCHAR" property="jiancharen"/>
     <result column="bumen" jdbcType="VARCHAR" property="bumen"/>
@@ -33,6 +34,14 @@
      <result column="date" jdbcType="TIMESTAMP" property="date"/> -->
   </resultMap>
 
+   <select id="queryAll"   resultMap="Drgfgzx1Result">
+    SELECT * FROM drgfgzx1 
+   
+  </select>
+  
+  
+  
+  
   
   <insert id="add" parameterType="bean.zk.Drgfgzx1" useGeneratedKeys="false">
     INSERT INTO Drgfgzx1

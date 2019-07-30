@@ -2,20 +2,30 @@ package action.zk;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
+
+
+import util.JsonDateValueProcessor;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+
+import net.sf.json.JsonConfig;
 import bean.Device;
-import bean.MieHuo;
 import bean.zk.Drgfgzx1;
 import dao.DeviceDao;
-import dao.MieHuoDao;
 import dao.impl.DeviceDaoImpl;
-import dao.impl.MieHuoDaoImpl;
 import dao.zk.Drgfgzx1Dao;
 import dao.zk.impl.Drgfgzx1DaoImpl;
 import action.SuperAction;
 
 public class Drgfgzx1Action extends SuperAction{
 
+	/**
+	 * 
+	 */
+	
 	private Object object;
 	public Object getObject() {
 		return object;
@@ -24,7 +34,7 @@ public class Drgfgzx1Action extends SuperAction{
 	public void setObject(Object object) {
 		this.object = object;
 	}
-	
+	private static final long serialVersionUID = 1L;
 	public String  add() {
 		String  shebeibianhao=request.getParameter("shebeibianhao");
 		DeviceDao dDao=new DeviceDaoImpl();
@@ -74,5 +84,31 @@ public class Drgfgzx1Action extends SuperAction{
 		
 	}
 	
+	
+	public String  query() {
+		
+		Drgfgzx1Dao dDao=new Drgfgzx1DaoImpl();
+		
+		List<Drgfgzx1> result =dDao.queryAll();
+		System.out.println(result);
+		JsonConfig jsonConfig = new JsonConfig();
+		jsonConfig.registerJsonValueProcessor(Timestamp.class , new JsonDateValueProcessor());
+		JSONArray js=JSONArray.fromObject(result,jsonConfig);
+		JSONObject obj=new JSONObject();
+
+    
+        obj.put("data", js.toString());
+        System.out.println(obj);
+        this.object=obj;
+		if (result !=null) {
+			
+		
+			System.out.println("999999999999999999666666666666666");
+			return "query_success";
+		}
+		else {
+			return "query_error";
+		}
+	}
 	
 }

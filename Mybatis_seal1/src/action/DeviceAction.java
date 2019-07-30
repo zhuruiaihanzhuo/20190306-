@@ -42,7 +42,7 @@ private  Object object;;
 		DeviceDao deviceDao=new DeviceDaoImpl();
 		List<Device> result=deviceDao.query();
 
-		System.out.println("ppppppppppppppppppppppppppppp");
+		//System.out.println("ppppppppppppppppppppppppppppp");
 		JsonConfig jsonConfig = new JsonConfig();
 		jsonConfig.registerJsonValueProcessor(Timestamp.class , new JsonDateValueProcessor());
 		JSONArray js=JSONArray.fromObject(result,jsonConfig);
@@ -70,7 +70,7 @@ private  Object object;;
 		String beizhu=request.getParameter("beizhu");
 		CategoryDao cDao=new CategoryDaoImpl();
 		Category category=cDao.queryById(Integer.parseInt(category_id));
-		System.out.println("======================="+category+"55555555555555555555");
+		//System.out.println("======================="+category+"55555555555555555555");
 		AreaDao aDao  =new AreaDaoImpl();
 		Area area=   aDao.queryById(Integer.parseInt(area_id));
 	

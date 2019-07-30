@@ -1,6 +1,9 @@
+/Test.class
+/XiaoFangDao.class
 /action
-/dao
-/servlet
-/config
 /bean
-/struts
+/dao
+/db
+/servlet
+/util
+/config

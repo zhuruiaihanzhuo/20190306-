@@ -1,5 +1,6 @@
 package bean.zk;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import bean.Device;
@@ -22,7 +23,7 @@ public class Drgfgzx1 {
 	private	String lururen;
 	private	String bumen;
 	private Device device_id;
-	private	Date   lurushijian;
+	private	Timestamp   lurushijian;
 	
 	
 
@@ -37,7 +38,7 @@ public class Drgfgzx1 {
 	public Drgfgzx1(String one, String two, String three, String four,
 			String five, String six, String seven, String eight, String nine,
 			String beizhu, String lururen, String bumen, Device device_id,
-			Date lurushijian) {
+			Timestamp lurushijian) {
 		super();
 		this.one = one;
 		this.two = two;
@@ -233,7 +234,7 @@ public class Drgfgzx1 {
 
 
 
-	public void setLurushijian(Date lurushijian) {
+	public void setLurushijian(Timestamp lurushijian) {
 		this.lurushijian = lurushijian;
 	}
 	

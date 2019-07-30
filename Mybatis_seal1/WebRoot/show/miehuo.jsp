@@ -34,9 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<tr>
 									<th data-options="field:'date',align:'center',width:fixWidth(0.2),sortable:true">检查日期
 										</th>
-									<th data-options="field:'jiancharen',sortable:true,width:fixWidth(0.1),sortable:true">检查人
+									<th data-options="field:'jiancharen',align:'center',width:fixWidth(0.1),sortable:true">检查人
 										</th>
-									<th data-options="field:'bumen',sortable:true,order:'asc',width:fixWidth(0.1),sortable:true">部门</th>
+									<th data-options="field:'bumen',align:'center',width:fixWidth(0.1),sortable:true">部门</th>
 									
 									<th data-options="field:'shuliang',align:'center',width:fixWidth(0.1),sortable:true">数量
 										</th>
