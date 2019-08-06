@@ -114,7 +114,7 @@ setname();
 function setname(){
 
 var user="<%=session.getAttribute("name")%>";	
-alert(user);
+
 	 if(user!="null"){
 	$("#lururen").val(user);
 	

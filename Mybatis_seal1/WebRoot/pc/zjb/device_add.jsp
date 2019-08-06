@@ -159,7 +159,7 @@ function showArea(){
 	function showLeibie(){
 	
 	var user="<%=session.getAttribute("name")%>";	
-alert(user);
+
 	 if(user!="null"){
 	$("#lururen").val(user);
 	
