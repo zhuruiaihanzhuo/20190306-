@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>宿迁大松模具管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link rel="stylesheet" href="../../css/mui/mui.min.css">
+		
+		
+		
+		
+	</head>
+ <style>
+	img { height: auto;  width:95%;}
+	
+</style>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		  
+		    <h1 class="mui-title" style="color: blue;">宿迁大松模具管理系统</h1>
+		</header>
+		<div class="mui-content">
+
+
+
+ <div style="text-align: center;margin-top: 39px">
+        <label>模具编号</label>
+        <input type="text"  style="width: 200px;" id="bianhao">
+    </div>
+					
+	      <div style="text-align: center;margin-top: 15px;background-color: ghostwhite;height: 50px;">
+	    <button id='select'  type="button"  class="mui-btn mui-btn-primary" style="width: 300px;" onclick="select()">查询</button>
+	    </div>
+
+	
+	
+	 
+		</div>
+	<div id="test1" style="text-align: center;"></div>	
+		
+<div class="mui-slider" >
+  <div class="mui-slider-group mui-slider-loop">
+    <!--支持循环，需要重复图片节点-->
+     <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="4.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#"><img src="../../image/background/gree.jpg" style="height: 260px;margin-top: 90px" /></a></div>
+  
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="1.jpg" /></a></div>
+  
+  </div>
+</div>
+<div>
+
+<h4 style="text-align:center;color:red;">警告</h4>
+<p>本系统模具编号必须在后台维护对应设备信息。如有疑问请咨询系统管理员。（965503）</p>
+<p style="text-align:center;color:blue;">格力大松（宿迁）生活电器有限公司</p>
+</div>
+	</body>
+<script  src="../../js/jquery-1.8.2.min.js"  type="text/javascript"></script>
+<script type="text/javascript">
+mui.init();
+function select(){
+	var bianhao=$("#bianhao").val();
+	
+			$.ajax({
+url:'../../mojuInfo/MojuInfo_queryByBianhao.do',
+
+type:"get",
+dataType:"json",
+data:{bianhao:bianhao},
+success:function(data){
+
+document.getElementById("test1").innerHTML=data.data[0].neirong;
+var imgs=document.getElementsByTagName('img');
+
+for(var i=0;i<imgs.length;i++){
+
+imgs[i].setAttribute('id',i);
+imgs[i].setAttribute('onclick',"big()");
+};
+
+var spans=document.getElementsByTagName('span');
+for(var i=0;i<spans.length;i++){
+	
+	spans[i].style.width="100%";
+	//spans[i].style.height="auto";
+	
+	spans[i].style.lineHeight="29pt";
+	spans[i].style.float="left";
+	spans[i].style.textAlign="left";
+	spans[i].style.overflow="hidden";
+	
+	//spans[i].style.whiteSpace="pre-wrap";
+	//spans[i].style.wordBreak="break-all";
+	spans[i].style.wordWrap="break-word";
+	
+
+	};
+
+}
+});
+		
+
+}
+var flag ;
+
+function big(){
+	//var that=event.currentTarget;
+ 
+  var id=event.target.id  ;
+ //状态true为正常的状态,false为放大的状态
+ imgH,//图片的高度
+ imgW,//图片的宽度
+ img = document.getElementById(id);//图片元素
+ 
+ 
+
+ var imgH = img.height; //获取图片的高度
+ var imgW = img.width; //获取图片的宽度
+
+ if(flag){
+     //图片为正常状态,设置图片宽高为现在宽高的2倍
+    // var imgHB=imgH*2;
+    // var imgWB=imgW*2;
+     img.style.cssText="width:"+imgW/2+"px; height:"+imgH/2+"px; background:red;";
+     flag = false;//把状态设为正常状态
+     
+ }else{
+     //图片为放大状态,设置图片宽高为现在宽高的二分之一
+     
+    img.style.cssText="width:"+imgW*2+"px; height:"+imgH*2+"px; background:red;";
+     flag = true;//把状态设为放大状态
+ }
+
+}
+	
+
+</script>
+
+</html>
