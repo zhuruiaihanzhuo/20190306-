@@ -28,7 +28,7 @@
 
   </resultMap>
 
-   <select id="queryAll"   resultMap="MojuInfoResult">
+   <select id="queryAll"    parameterType="int" resultMap="MojuInfoResult">
     SELECT * FROM mojuInfo 
    
   </select>
@@ -47,6 +47,15 @@
     ( 
     #{lururen},#{lurushijian},#{shuoming},#{neirong},#{bianhao} ,#{genggaishijian} 
     )
+    
   </insert>
-
+<update id="update" parameterType="bean.gy.MojuInfo">
+    UPDATE mojuInfo SET
+    neirong = #{neirong},
+    shuoming = #{shuoming},
+    genggairen = #{genggairen},
+    genggaishijian=#{genggaishijian}
+    WHERE
+    bianhao = #{bianhao}
+  </update>
 </mapper>

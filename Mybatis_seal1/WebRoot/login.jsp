@@ -26,7 +26,7 @@
 
 <body style="background-color:#1c77ac; background-image:url(resource/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
 
-<form action="login/Users_query.do" method="post">
+<form method="post" onsubmit="return check()" action="login/Users_query.do">
 
     <div id="mainBody">
       <div id="cloud1" class="cloud"></div>
@@ -50,9 +50,9 @@
     <div class="loginbox">
     
     <ul>
-    <li><input name="username" type="text" class="loginuser"  onclick="JavaScript:this.value=''"/></li>
-    <li><input name="password" type="password" class="loginpwd" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="" type="submit" class="loginbtn" value="登录"   /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label></li>
+    <li><input id="username" name="username" type="text" class="loginuser"  /></li>
+    <li><input id="password" name="password" type="password" class="loginpwd" /></li>
+    <li><input name="" type="submit" class="loginbtn" value="登录"   /></li>
     </ul>
     
     
@@ -65,5 +65,38 @@
 
 	
     </form>
+    <script type="text/javascript">
+    function check(){
+    	if($("#username").val()!=null&& "" != $("#username").val() && $("#password").val() !=null&&
+			 "" != $("#password").val()){
+			  $.ajax({
+		type: "post",
+		 url:"login/Users_query2.do",
+		data:{
+		
+		username: $("#username").val(),
+		password : $("#password").val(),
+		
+		},
+		success: function (data) {
+			return true;
+		},
+		 error:function(){
+	    alert("登录失败,账号或密码错误");
+	    	 return false;
+	    }
+		 });
+		
+		 } else{
+		alert("请填写账号或密码");
+		  return false;
+		 }
+		
+		
+			 }
+    
+    
+    
+    </script>
 </body>
 </html>

@@ -10,6 +10,6 @@ public interface UsersDAO {
 //用户登录方法
 	public Users usersLogin(Users users);
 	public List<Roles> selectRoles(Users users) ;
-		
+	public boolean update(Users users);
 	
 }

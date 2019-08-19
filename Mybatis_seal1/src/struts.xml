@@ -36,8 +36,10 @@
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	  <result type="json" name="queryAuth_success"><param name="root">object</param></result>
 	  <result name="query_success" >/view/main/ezui.jsp</result> 
+	  <result type="json" name="query2_success"><param name="root">object3</param></result>
 	  <!-- <result type="json" name="query_success"><param name="root">object2</param></result> -->
 	  <result name="query_error" >/login.jsp</result>  
+	   <result name="update_success" type="redirect">/view/main/ezui.jsp</result>
 	</action>
 	</package>
 	

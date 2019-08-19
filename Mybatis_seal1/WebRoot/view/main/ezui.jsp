@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		<div data-options="region:'north',split:true,title:'<center>后台管理系统</center>'" style="height: 66px;background-color: #99FFFF"
 			><div    style=" color: #000033;" align="right"><b style="color: #663300"><%=session.getAttribute("name")%></b>
-			欢迎您&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a href="login.jsp" target="_parent">注销</a></b></div><div id="show"  align="right"></div></div>
+			欢迎您&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><a href="login.jsp" target="_parent">注销</a></b></div><div id="show"  align="right"></div></div>
 		<!-- <div data-options="region:'east',split:true " style="width: 150px"
 			title="east"></div> -->
 <!-- 		<div id="mm" class="easyui-menu" style="width:120px;">
@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					top: e.pageY
 				});
 			});
-		$('#dg').datagrid({
+		/* $('#dg').datagrid({
         	
         columns:[[
        		 {field:'sid',checkbox:true,sortable:true},
@@ -183,10 +183,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		} 
        		}]
        
-    });
+    }); */
 
 	
-    var dg1=$('#dg1').datagrid({
+   <%--  var dg1=$('#dg1').datagrid({
     		url:'<%=path%>/kzq/TongWang_query',
     		
     		
@@ -232,9 +232,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		/* console.log($('#dg').datagrid('getSelected')); */
     	/* 	console.log($('#dg').datagrid('getSelections')); */
     	console.log($('#dg').datagrid('options'));
-    });
+    });//此处是easyui的json格式 --%>
 		});
-		//此处是easyui的json格式
+		//此处是easyui的json格式 
 var tree = {
 	id:'',
 	text:'',

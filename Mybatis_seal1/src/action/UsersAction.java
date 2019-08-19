@@ -30,7 +30,18 @@ public class UsersAction extends SuperAction {
 	private static final long serialVersionUID = 1L;
 	private  Object object;;
 	private Object object2;
+	private Object object3;
 	
+	public Object getObject3() {
+		return object3;
+	}
+
+
+	public void setObject3(Object object3) {
+		this.object3 = object3;
+	}
+
+
 	public Object getObject2() {
 		return object2;
 	}
@@ -95,12 +106,14 @@ public String  query() {
 		UsersDAO udao=new UserDAOImpl();
 		String username  =request.getParameter("username");
 		String password =request.getParameter("password");
+		System.out.println(password+"咋的啦");
 		Users users=new Users();
 		users.setUsername(username);
 		users.setPassword(password);
 		Users resu =udao.usersLogin(users);
 		System.out.println(resu);
 		if (resu!=null) {
+			
 			session.setAttribute("bumen", resu.getBumen());
 			session.setAttribute("user", username);
 			session.setAttribute("name", resu.getName());
@@ -111,6 +124,53 @@ public String  query() {
 		}
 	
 	}
+public String  query2() {
+	
+	UsersDAO udao=new UserDAOImpl();
+	String username  =request.getParameter("username");
+	String password =request.getParameter("password");
+	System.out.println(password+"咋的啦");
+	Users users=new Users();
+	users.setUsername(username);
+	users.setPassword(password);
+	Users resu =udao.usersLogin(users);
+	System.out.println(resu);
+	
+		object3=resu;
+		session.setAttribute("bumen", resu.getBumen());
+		session.setAttribute("user", username);
+		session.setAttribute("name", resu.getName());
+		return "query2_success";
+	
+	
+
+}
+
+public String  update() {
+	
+	UsersDAO udao=new UserDAOImpl();
+	String username  =request.getParameter("username");
+	
+	String passwordNew =request.getParameter("passwordNew");
+	System.out.println(passwordNew+"999999999996666666");
+	Users users=new Users();
+	users.setUsername(username);
+	users.setPassword(passwordNew);
+	boolean resu =udao.update(users);
+	System.out.println(resu);
+	if (resu) {
+		
+	
+		return "update_success";
+	}
+	else {
+		return "update_error";
+	}
+
+}
+
+
+
 	
 public String  query_app() {
 	

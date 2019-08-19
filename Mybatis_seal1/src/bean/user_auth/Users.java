@@ -11,6 +11,15 @@ public class Users {
     private String bumen;
     private Date createtime;
     private List<Roles> rolesList;
+    
+	public Users() {
+		super();
+	}
+	public Users(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	public Integer getId() {
 		return id;
 	}

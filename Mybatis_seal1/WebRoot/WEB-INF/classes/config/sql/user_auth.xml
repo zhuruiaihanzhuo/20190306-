@@ -89,7 +89,14 @@
     #{url}
     )
   </insert>
-
+ <update id="update" parameterType="bean.user_auth.Users" >
+    UPDATE users SET
+   
+    password = #{password}
+   
+    WHERE
+    username= #{username}
+  </update>
 <!--   <update id="update" parameterType="UserAlias">
     UPDATE user SET
     username = #{username,jdbcType=VARCHAR},
