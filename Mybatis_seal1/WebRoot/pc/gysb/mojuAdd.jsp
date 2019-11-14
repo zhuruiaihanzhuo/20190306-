@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <link type="text/css"  rel="stylesheet"  href="./newsRealese.css"/> -->
     </head>
     <body id="body">
-    <div class="easyui-panel" title="添加设备" style="width:1000px" data-options="iconCls:'icon-undo',fit='true'">
+    <div class="easyui-panel" title="添加设备" style="width:1000px" data-options="fit:'true'">
      
             <table  border="0" id="table">
                 <tr>

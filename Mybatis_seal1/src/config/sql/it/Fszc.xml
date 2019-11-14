@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Fszc">
+
+  <resultMap type="bean.it.Fszc" id="FszcResult">
+  <id column="id" jdbcType="INTEGER" property="id"/>
+  
+    <!--  <result column="device_id"  property="device_id"/> -->
+      <!-- <result column="jiancharen" jdbcType="VARCHAR" property="jiancharen"/>
+    <result column="bumen" jdbcType="VARCHAR" property="bumen"/>
+    <result column="shebeibianhao" jdbcType="VARCHAR" property="shebeibianhao"/>
+     <result column="shuliang" jdbcType="VARCHAR" property="shuliang"/>
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu"/>
+     <result column="date" jdbcType="TIMESTAMP" property="date"/> -->
+  </resultMap>
+
+   <select id="queryAll"   resultMap="FszcResult">
+    SELECT * FROM Fszc 
+   
+  </select>
+  
+     <select id="queryByDepartment"   resultMap="FszcResult">
+    SELECT * FROM Fszc where department=#{department}
+   
+  </select>
+  
+  
+  
+  
+  <insert id="add" parameterType="bean.it.Fszc" useGeneratedKeys="false">
+    INSERT INTO Fszc
+    ( 
+    department,office,category,brand,type,ccNumber, zcNumber, personIC,personCY,
+    area,zpCount,state,newfcNumber,admin,wxNumber,wxPerson,remarks,lururen,lurushijian
+    )
+    VALUES
+    ( 
+    #{department},#{office},#{category},#{brand},#{type},#{ccNumber},#{zcNumber},#{personIC},
+    #{personCY},#{area},#{zpCount},#{state},#{newfcNumber},#{admin},#{wxNumber},#{wxPerson},#{remarks},#{lururen},#{lurushijian}
+    )
+  </insert>
+
+<!--   <update id="update" parameterType="UserAlias">
+    UPDATE user SET
+    username = #{username,jdbcType=VARCHAR},
+    password = #{password.encrypted,jdbcType=VARCHAR},
+    administrator = #{administrator,jdbcType=BOOLEAN}
+    WHERE
+    id = #{id,jdbcType=INTEGER}
+  </update>
+
+    Unique constraint check
+  <select id="isUniqueUsername" parameterType="map" resultType="boolean">
+    SELECT (count(*) = 0)
+    FROM user
+    WHERE ((#{userId,jdbcType=BIGINT} IS NOT NULL AND id != #{userId,jdbcType=BIGINT}) OR #{userId,jdbcType=BIGINT} IS
+    NULL)  other than me
+    AND (username = #{username,jdbcType=VARCHAR})
+  </select>  -->
+</mapper>

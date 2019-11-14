@@ -14,10 +14,13 @@ import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import util.JsonDateValueProcessor;
 import dao.gy.MojuInfoDao;
+import dao.gy.MojuOfDeleteDao;
+import dao.gy.impl.MojuOfDeleteDaoImpl;
 import dao.gy.impl.Moju_infoDaoImpl;
 
 
 import bean.gy.MojuInfo;
+import bean.gy.MojuOfDelete;
 import action.SuperAction;
 
 public class MojuInfoAction extends SuperAction {
@@ -184,6 +187,38 @@ public class MojuInfoAction extends SuperAction {
 		
 	}
 
+	
+	public String  delete() {
+		
+		
+		
+		MojuOfDelete moju=new MojuOfDelete();
+		String shanchuren=request.getParameter("shanchuren");
+
+
+  
+         String bianhao=request.getParameter("bianhao");      
+         String shuoming=request.getParameter("shuoming");  
+         String neirong=request.getParameter("content"); 
+        System.out.println(bianhao+shuoming+shanchuren+neirong+"        sdfsdf s索拉卡积分卡手机打开了手机打哈看不大恐怖"+neirong);
+         Date date=new Date();     
+         Timestamp date2 = new Timestamp(date.getTime());
+         moju.setBianhao(bianhao);
+         moju.setShuoming(shuoming);
+         moju.setNeirong(neirong);
+         moju.setShanchuren(shanchuren);
+       
+        moju.setShanchushijian(date2);
+       
+         MojuInfoDao mDao=new Moju_infoDaoImpl();
+         mDao.deleteMoju(bianhao);
+         MojuOfDeleteDao deleteDao =new MojuOfDeleteDaoImpl();	
+         deleteDao.add(moju);
+			return "delete_success";
+		
+	}
+	
+	
 	
 	
 	

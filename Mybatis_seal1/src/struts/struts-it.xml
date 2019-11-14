@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+
+
+	<constant name="struts.action.extension" value="do" />
+<package name="fszc" namespace="/fszc" extends="json-default">
+	<action name="*_*" class="action.it.{1}Action" method="{2}">
+	 <result type="json" name="queryAll_success"><param name="root">fszc</param></result>	 
+	  <result type="json" name="queryByDepartment_success"><param name="root">fszc2</param></result>	
+	 <result name="add_success" type="redirect">/pc/it/fszc_query.jsp</result> 
+	</action>
+</package>
+	
+</struts>    

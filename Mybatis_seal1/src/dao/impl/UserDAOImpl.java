@@ -19,6 +19,38 @@ import db.DBA;
 
 public class UserDAOImpl implements UsersDAO {
 
+	
+	
+	public boolean addUser(Users users) {
+		//事物对象
+		DBA dba=new DBA();
+		
+		SqlSession sqlSession=null;
+		
+		try {
+
+			sqlSession=	dba.getSqlSession();
+			
+			//通过sqlSession执行sql语句；
+		 sqlSession.update("User_auth.add",users);
+		
+			
+		 sqlSession.commit();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				
+			} finally{
+				if (sqlSession !=null) {
+					sqlSession.close();
+				}	
+			}
+		return true;			
+}
+	
+	
+	
+	
 
 	public Users usersLogin(Users users) {
 		//事物对象
@@ -138,6 +170,36 @@ public class UserDAOImpl implements UsersDAO {
 	}
 		return rolesList;
 }
+
+	@Override
+	public List<Users> selectAll() {
+		//事物对象
+				DBA dba=new DBA();
+				 List<Users> userList= new ArrayList<Users>();
+				SqlSession sqlSession=null;
+				
+				try {
+
+					sqlSession=	dba.getSqlSession();
+			
+					//通过sqlSession执行sql语句；
+				 userList=sqlSession.selectList("User_auth.selectAll");
+				
+					
+				 sqlSession.commit();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						
+					} finally{
+						if (sqlSession !=null) {
+							sqlSession.close();
+						}	
+					}
+				
+				return	 userList;
+				
+	}
 
 
 }

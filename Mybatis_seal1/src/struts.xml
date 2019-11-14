@@ -7,6 +7,7 @@
 	<package name="default" namespace="/" extends="json-default"></package>
 	<include file="struts/struts-zk.xml"></include>
 	<include file="struts/struts-gy.xml"></include>
+		<include file="struts/struts-it.xml"></include>
 	<package name="xiaofang" namespace="/xiaofang" extends="json-default">
 	<action name="*_*" class="action.{1}Action" method="{2}">
 	 <result name="query_success">/transit-jsp/xiaofang-tr.jsp</result> 
@@ -42,6 +43,16 @@
 	   <result name="update_success" type="redirect">/view/main/ezui.jsp</result>
 	</action>
 	</package>
+	
+	<package name="Users" namespace="/user" extends="json-default">
+	<action name="*_*" class="action.{1}Action" method="{2}"> 
+	  <result type="json" name="queryAll_success"><param name="root">users</param></result>
+	   <result name="addUser_success" type="redirect">/pc/user_auth/user_query.jsp</result>
+	</action>
+	</package>
+	
+	
+	
 	
 	<package name="area" namespace="/area" extends="json-default">
 	<action name="*_*" class="action.{1}Action" method="{2}">

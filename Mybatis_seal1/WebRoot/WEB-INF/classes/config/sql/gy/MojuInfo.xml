@@ -58,4 +58,11 @@
     WHERE
     bianhao = #{bianhao}
   </update>
+  <delete id="delete">
+DELETE FROM Mojuinfo WHERE bianhao=#{bianhao}
+
+</delete>
+  
+  
 </mapper>
+

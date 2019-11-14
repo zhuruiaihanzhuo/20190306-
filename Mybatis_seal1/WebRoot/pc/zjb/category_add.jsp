@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="easyui-panel" title="添加类别" style="width:400px" data-options="iconCls:'icon-undo',fit='true'">
+  <div class="easyui-panel" title="添加类别" style="width:400px" data-options="fit:'true'">
 		<div style="padding:10px 60px 20px 60px">
 	    <form id="ff" method="post" action="">
 	    <h2 style="color:#5bc0de ">添加类别</h2>

@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="easyui-panel" title="修改密码" style="width:400px" data-options="iconCls:'icon-undo',fit='true'">
+  <div class="easyui-panel" title="修改密码" style="width:400px" data-options="fit:'true'">
 		<div style="padding:10px 60px 20px 60px">
 	    <form id="ff" method="post" action="">
 	    <h2 style="color:#5bc0de ">修改密码</h2>
@@ -45,8 +45,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		
 	    	</table>
 	    </form>
-	    <div style="text-align:center;padding:5px">
-	    	<a href="javascript:void(0)" id="submit" class="easyui-linkbutton" onclick="submitForm()" style="color:#5bc0de">提交</a>
+	    <div style="text-align:left;padding:5px">
+	    	<a href="javascript:void(0)" id="submit" class="easyui-linkbutton" onclick="submitForm()" style="color:red">修改</a>
 	    	
 	    </div>
 	    </div>

@@ -15,4 +15,5 @@ public interface MojuInfoDao {
 	public List<MojuInfo> queryByBianhao(String bianhao);
 	public int checkByBianhao(String bianhao);
 	public boolean updateMoju(MojuInfo moju);
+	public boolean deleteMoju(String bianhao);
 }

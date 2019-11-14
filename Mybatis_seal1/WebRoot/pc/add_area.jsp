@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div class="easyui-panel" title="添加区域" style="width:400px" data-options="iconCls:'icon-undo',fit='true'">
+  <div class="easyui-panel" title="添加区域" style="width:400px" data-options="fit:'true'">
 		<div style="padding:10px 60px 20px 60px">
 	    <form id="ff" method="post" action="">
 	    <h2 style="color:#5bc0de ">添加区域</h2>
@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		</tr>
 	    	</table>
 	    </form>
-	    <div style="text-align:center;padding:5px">
+	    <div style="text-align:left;padding:5px">
 	    	<a href="javascript:void(0)" id="submit" class="easyui-linkbutton" onclick="submitForm()" style="color:#5bc0de">提交</a>
 	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="color:red">重填</a>
 	    </div>

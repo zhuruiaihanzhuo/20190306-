@@ -2,7 +2,11 @@ package action;
 
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+
 
 
 
@@ -31,6 +35,7 @@ public class UsersAction extends SuperAction {
 	private  Object object;;
 	private Object object2;
 	private Object object3;
+	private Object users;
 	
 	public Object getObject3() {
 		return object3;
@@ -63,6 +68,16 @@ public class UsersAction extends SuperAction {
 	
 	
 	
+	public Object getUsers() {
+		return users;
+	}
+
+
+	public void setUsers(Object users) {
+		this.users = users;
+	}
+
+
 	public String  queryAuth() {
 		
 		UsersDAO udao=new UserDAOImpl();
@@ -124,6 +139,31 @@ public String  query() {
 		}
 	
 	}
+
+public String  queryAll() {
+	
+	UsersDAO udao=new UserDAOImpl();
+	List<Users> users= udao.selectAll();
+    
+    JsonConfig jsonConfig = new JsonConfig();
+	jsonConfig.registerJsonValueProcessor(Timestamp.class , new JsonDateValueProcessor());
+	JSONArray js=JSONArray.fromObject(users,jsonConfig);
+	JSONObject obj=new JSONObject();
+	obj.put("data", js.toString());
+	this.users=obj;
+    
+    
+    
+	
+	System.out.println(users);
+	
+	
+		return "queryAll_success";
+
+
+}
+
+
 public String  query2() {
 	
 	UsersDAO udao=new UserDAOImpl();
@@ -134,12 +174,13 @@ public String  query2() {
 	users.setUsername(username);
 	users.setPassword(password);
 	Users resu =udao.usersLogin(users);
-	System.out.println(resu);
 	
+	System.out.println(resu);
+	session.setAttribute("bumen", resu.getBumen());
+	session.setAttribute("user", username);
+	session.setAttribute("name", resu.getName());
 		object3=resu;
-		session.setAttribute("bumen", resu.getBumen());
-		session.setAttribute("user", username);
-		session.setAttribute("name", resu.getName());
+	
 		return "query2_success";
 	
 	
@@ -165,6 +206,38 @@ public String  update() {
 	}
 	else {
 		return "update_error";
+	}
+
+}
+
+public String addUser() {
+	
+	UsersDAO udao=new UserDAOImpl();
+	String username  =request.getParameter("username");
+	
+	String lururen =request.getParameter("lururen");
+	String name  =request.getParameter("name");
+	
+	String bumen =request.getParameter("bumen");
+	Date date =new Date();
+	Timestamp createTime = new Timestamp(date.getTime());
+	Users users=new Users();
+	users.setUsername(username);
+	users.setPassword("123456");
+
+	users.setBumen(bumen);
+	users.setLururen(lururen);
+	users.setCreatetime(createTime);
+	users.setName(name);
+	boolean resu =udao.addUser(users);
+	System.out.println(resu);
+	if (resu) {
+		
+	
+		return "addUser_success";
+	}
+	else {
+		return "addUser_error";
 	}
 
 }

@@ -1,0 +1,54 @@
+body{
+	
+}
+
+#hd{
+	background-color: #99FFFF;
+}
+#show{
+	 text-align: center;
+	 margin-top: 15px;
+}
+#show2{
+	width: 150px;
+	
+}
+#show3{
+	margin-top: 20px;
+	
+}
+.detail{
+	
+	margin-top: 15px;
+margin-left: 30px
+}
+.detail2{
+		color: #66CCFF;
+	
+}
+.detail3{
+	float:right;
+	margin-right:50px;
+	width: 60%;
+	height:30px
+}
+.detail4{
+	background-color:#FF9900;
+	margin-left:66px;
+	width: 39%;
+	height:36px
+}
+.file1{
+	margin-top: 15px;
+	
+	text-align: center;
+	
+}
+h4{
+	color: #66CCFF;
+	margin:25px 25px 10px 10px;
+	
+}
+#blah{
+	
+}

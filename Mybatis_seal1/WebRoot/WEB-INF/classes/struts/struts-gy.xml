@@ -13,6 +13,7 @@
 	 <result type="json" name="checkByBianhao"><param name="root">object2</param></result>
 	  <result name="add_success" type="redirect">/pc/gysb/queryMoju.jsp</result> 
 	   <result name="update_success" type="redirect">/pc/gysb/queryMoju.jsp</result>
+	    <result name="delete_success" type="redirect">/pc/gysb/queryMoju.jsp</result>
 	
 	</action>
 	</package>

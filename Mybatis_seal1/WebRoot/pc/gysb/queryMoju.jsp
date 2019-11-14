@@ -119,7 +119,89 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	alert('Item ID:'+row.id+"Price:"+row.bianhao);
 } */
        		} 
-       		}]
+       		},
+       		
+       			{
+       		text:'删除',
+       		iconCls:'icon-remove',
+       	 	handler:function(){
+       	 	
+       	 	 //判断是否选中一条记录
+            var data=$('#dg11').datagrid('getSelected');
+       	 	if(data)
+                {
+                var bianhao=data.bianhao;
+                var biaoti=data.shuoming;
+                var neirong=data.neirong;
+           		var shanchuren="<%=session.getAttribute("name")%>";
+                alert(shanchuren);
+                
+                 if(shanchuren!=null){
+	
+				
+				 $.ajax({
+		type: "post",
+		 url:"<%=path%>/mojuInfo/MojuInfo_delete.do",
+		data:{
+		shanchuren: shanchuren,
+		bianhao :    bianhao,
+		shuoming :biaoti,
+		content: neirong
+		},
+		
+		success: function () {
+		
+		$.messager.confirm('删除成功', '是否继续删除?', function(r){
+				if (r){
+					window.location.href="<%=path%>/pc/gysb/queryMoju.jsp";
+				}else{
+				window.location.href="<%=path%>/pc/welcom.jsp";
+				
+				
+				}
+			});
+		
+		
+		
+	    },
+	    error:function(){
+	    	 $.messager.alert('删除失败','删除失败，请联系管理员','error');
+	    }
+		 });
+  
+
+            
+	
+	}
+
+	else{
+	 if (window.top!=null && window.top.document.URL!=document.URL){  
+            var urlStr = document.URL;  
+             var endIndex = urlStr.indexOf('xxxxxxxxxx');  
+             
+            urlStr = urlStr.substring(0, 40); 
+          
+          window.top.location= urlStr + "/login.jsp";  // 跳转到登录页  
+           
+        }};
+                
+                
+                
+               
+                       }
+            else
+                {
+                $.messager.alert('选定失败','未选定数据','error');
+                }	 	
+/*        			 var row = $('#dg1').datagrid('getSelected');
+	if (row){
+	alert('Item ID:'+row.id+"Price:"+row.bianhao);
+} */
+       		} 
+       		}
+       		
+       		
+       		]
 			 
 			 
 			    

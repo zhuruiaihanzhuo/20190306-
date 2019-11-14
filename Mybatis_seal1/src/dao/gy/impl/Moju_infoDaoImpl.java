@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSession;
 
 
 
+
 import bean.gy.MojuInfo;
 import dao.gy.MojuInfoDao;
 import db.DBA;
@@ -21,7 +22,7 @@ public class Moju_infoDaoImpl implements MojuInfoDao {
 
 	public boolean addMoju(MojuInfo moju) {
 	
-	DBA dba=new DBA();
+		DBA dba=new DBA();
 		
 		SqlSession sqlSession=null;
 		try {
@@ -154,6 +155,33 @@ DBA dba=new DBA();
 		//通过sqlSession执行sql语句；
 		System.out.println(moju.getLurushijian()+"555555555555566666666666");
 		sqlSession.update("MojuInfo.update",moju);
+		
+		sqlSession.commit();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			if (sqlSession !=null) {
+				sqlSession.close();
+			}
+			
+		}
+	
+		
+		return true;
+	}
+
+	@Override
+	public boolean deleteMoju(String bianhao) {
+			DBA dba=new DBA();
+		
+		SqlSession sqlSession=null;
+		try {
+		
+		sqlSession=	dba.getSqlSession();
+		
+		//通过sqlSession执行sql语句；
+		sqlSession.delete("MojuInfo.delete",bianhao);
 		
 		sqlSession.commit();
 		} catch (IOException e) {

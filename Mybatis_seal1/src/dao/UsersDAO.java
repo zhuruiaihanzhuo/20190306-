@@ -11,5 +11,7 @@ public interface UsersDAO {
 	public Users usersLogin(Users users);
 	public List<Roles> selectRoles(Users users) ;
 	public boolean update(Users users);
+	public List<Users> selectAll() ;
+	public boolean addUser(Users users);
 	
 }

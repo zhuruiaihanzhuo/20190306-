@@ -1,5 +1,6 @@
 package bean.user_auth;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +10,8 @@ public class Users {
     private String name;
     private String password;
     private String bumen;
-    private Date createtime;
+    private  String lururen;
+    private Timestamp createtime;
     private List<Roles> rolesList;
     
 	public Users() {
@@ -19,6 +21,20 @@ public class Users {
 		super();
 		this.username = username;
 		this.password = password;
+	}
+	
+	
+	
+	public Users(String username, String name, String password, String bumen,
+			String lururen, Timestamp createtime, List<Roles> rolesList) {
+		super();
+		this.username = username;
+		this.name = name;
+		this.password = password;
+		this.bumen = bumen;
+		this.lururen = lururen;
+		this.createtime = createtime;
+		this.rolesList = rolesList;
 	}
 	public Integer getId() {
 		return id;
@@ -53,7 +69,7 @@ public class Users {
 	public Date getCreatetime() {
 		return createtime;
 	}
-	public void setCreatetime(Date createtime) {
+	public void setCreatetime(Timestamp createtime) {
 		this.createtime = createtime;
 	}
 	public List<Roles> getRolesList() {
@@ -62,13 +78,22 @@ public class Users {
 	public void setRolesList(List<Roles> rolesList) {
 		this.rolesList = rolesList;
 	}
+	
     
-	 @Override
+	 public String getLururen() {
+		return lururen;
+	}
+	public void setLururen(String lururen) {
+		this.lururen = lururen;
+	}
+	@Override
 	    public String toString() {
 	        return "Users [id=" + id + ", username=" + username + ", name=" + name +  
 	                " password=" + password + ", bumen=" + bumen + ", createtime=" + createtime
-	                +  ", rolesList=" + rolesList + "]";
+	                +  ", rolesList=" + rolesList + " lururen=" + lururen + "]";
 	    }
+	
+	
 
     
 }

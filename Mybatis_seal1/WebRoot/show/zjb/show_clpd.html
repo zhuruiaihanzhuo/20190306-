@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>宿迁大松外来车辆管理系统</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link rel="stylesheet" href="../../css/mui/mui.min.css">
+	
+		<link rel="stylesheet" href="../../css/mui/zjb/zjb.css">
+		
+		
+	</head>
+
+	<body>
+		<header id="hd" class="mui-bar mui-bar-nav">
+		    
+		    <h1 class="mui-title">宿迁大松外来车辆排队查询</h1>
+		</header>
+		<div class="mui-content">
+<div style="text-align: center;">
+  <button type="button" class="mui-icon mui-icon-camera"  onclick="clicked('barcode_scan.html',true,true)" style="background:deepskyblue;width: 260px;margin-top: 10px;">扫描设备</button>
+</div>
+ <div id="show">
+
+  			<button id="show2"  type="button"  class="mui-btn mui-btn-primary">提交送货申请</button>
+</div>
+
+		</div>
+	<div id="show3">
+                 
+					<h4 style="color:#0066FF;">当前排队信息</h4>
+
+	    </div>
+	  <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" width="100%" color=#99FFFF SIZE=3>	
+	<div class="detail">
+	<label class="detail2">原材料</label>
+	<input class="detail3"  required readonly="readonly" >
+	</div>
+	<div class="detail">
+	<label class="detail2">原材料</label>
+	<input class="detail3"  required readonly="readonly" >
+	</div>
+	<div class="detail">
+	<label class="detail2">原材料</label>
+	<input class="detail3"  required readonly="readonly" >
+	</div>
+	<div class="detail">
+	<label class="detail2">原材料</label>
+	<input class="detail3"  required readonly="readonly" >
+	</div>
+	<div class="detail">
+	<label class="detail2">原材料</label>
+	<input class="detail3"  required readonly="readonly" >
+	</div>
+	<div class="detail">
+	<label class="detail2">原材料</label>
+	<input class="detail3"  required readonly="readonly" >
+	</div>
+
+<div>
+ <div class="upload">
+        <button>上传文件(二进制)</button>
+      
+        <input type="file" accept="image/*" capture="camcorder" id="upload1">
+    </div>
+<h4 style="text-align:center;color:red;">警告</h4>
+<p>本系统扫描设备必须在后台维护对应区域类别等设备信息，否则点检无效。如有疑问请咨询系统管理员。（965503）</p>
+<p style="text-align:center;color:blue;">格力大松（宿迁）生活电器有限公司</p>
+</div>
+	</body>
+<script  src="../../js/jquery-1.8.2.min.js"  type="text/javascript"></script>
+<script src="../../js/jquery.validate-1.13.1.js"></script>
+<script src="../../js/zjb/show_clpd.js"></script>
+<script type="text/javascript">
+
+mui.init();
+mui.ready(function(){
+
+	setTimeout("InItData()",10);
+});
+
+
+</script>
+</html>

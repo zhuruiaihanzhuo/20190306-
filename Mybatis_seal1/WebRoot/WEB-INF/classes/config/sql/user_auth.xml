@@ -30,6 +30,7 @@
     <result property="password" column="password" jdbcType="VARCHAR"/>
     <result property="bumen" column="bumen" jdbcType="VARCHAR"/>
     <result property="createtime" column="createtime" jdbcType="TIMESTAMP" />
+     <result property="lururen" column="lururen" jdbcType="VARCHAR" />
  
 </resultMap>
 
@@ -54,14 +55,17 @@
 </select>
 
 <select id="findUsersByName" parameterType="String" resultMap="users">
-    select id,username,password,createtime,bumen from        users where username=#{username}
+    select id,username,password,createtime,bumen,lururen from        users where username=#{username}
 </select>
 
 <select id="select"  parameterType="bean.user_auth.Users" resultMap="users">
     SELECT * FROM users WHERE username=#{username} and password=#{password}
   
   </select>
-
+<select id="selectAll"  parameterType="bean.user_auth.Users" resultMap="users">
+    SELECT * FROM users 
+  
+  </select>
 
 
 
@@ -97,6 +101,29 @@
     WHERE
     username= #{username}
   </update>
+  <insert id="add" parameterType="bean.user_auth.Users" useGeneratedKeys="false">
+    INSERT INTO Users
+    ( 
+    username,
+    password,
+    name,
+    lururen,
+    createtime,
+    bumen
+    )
+    VALUES
+    ( 
+    #{username},
+    #{password},
+    #{name},
+    #{lururen},
+    #{createtime},
+    #{bumen}
+    )
+  </insert>
+ 
+  
+  
 <!--   <update id="update" parameterType="UserAlias">
     UPDATE user SET
     username = #{username,jdbcType=VARCHAR},
