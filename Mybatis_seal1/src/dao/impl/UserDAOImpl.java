@@ -32,7 +32,7 @@ public class UserDAOImpl implements UsersDAO {
 			sqlSession=	dba.getSqlSession();
 			
 			//通过sqlSession执行sql语句；
-		 sqlSession.update("User_auth.add",users);
+		 sqlSession.insert("User_auth.add",users);
 		
 			
 		 sqlSession.commit();

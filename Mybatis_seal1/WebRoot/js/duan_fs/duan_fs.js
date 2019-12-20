@@ -312,7 +312,7 @@ function  user_todatagrid(){
 							if (r){
 								location.reload() ;
 							}else{
-							window.location.href="pc/zjb/device_query.jsp";
+							window.location.href="pc/it/fszc_query.jsp";
 							
 							
 							}

@@ -93,6 +93,17 @@
     #{url}
     )
   </insert>
+    <insert id="user_rolo_Add"  useGeneratedKeys="false">
+    INSERT INTO  users_roles
+    user_id,
+    role_id
+    )
+    VALUES
+    ( 
+    #{name},
+    #{url}
+    )
+  </insert>
  <update id="update" parameterType="bean.user_auth.Users" >
     UPDATE users SET
    

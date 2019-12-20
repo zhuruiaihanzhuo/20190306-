@@ -13,6 +13,7 @@ import java.util.List;
 
 
 
+
 import util.JsonDateValueProcessor;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -229,8 +230,9 @@ public String addUser() {
 	users.setLururen(lururen);
 	users.setCreatetime(createTime);
 	users.setName(name);
+	System.out.println(users);
 	boolean resu =udao.addUser(users);
-	System.out.println(resu);
+	
 	if (resu) {
 		
 	
