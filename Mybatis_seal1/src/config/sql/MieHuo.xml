@@ -34,7 +34,7 @@
   </resultMap>
 
   <select id="queryAll"  parameterType="String" resultMap="MieHuoResult">
-    SELECT * FROM MIEHUO WHERE 1=1
+     select * from  miehuo a LEFT JOIN   device d ON  a.device_id =d.id
     <!-- <if test="_parameter !=null and !&quot;&quot;.equals(_parameter)">and SHEBEIBIANHAO=#{_parameter}</if> -->
     
     

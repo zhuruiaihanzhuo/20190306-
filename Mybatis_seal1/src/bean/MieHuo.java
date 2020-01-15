@@ -10,7 +10,7 @@ public class MieHuo {
 	private String shuliang;
 	private String beizhu;
 	private Date date;
-
+	private String shebeibianhao;
 
 	public MieHuo() {
 		super();
@@ -33,7 +33,7 @@ public class MieHuo {
 
 
 	public MieHuo(String jiancharen, String bumen,Device device_id,
-			String shuliang, String beizhu, Date date) {
+			String shuliang, String beizhu, Date date,String shebeibianhao) {
 		super();
 		this.jiancharen = jiancharen;
 		this.bumen = bumen;
@@ -41,6 +41,19 @@ public class MieHuo {
 		this.shuliang = shuliang;
 		this.beizhu = beizhu;
 		this.date = date;
+		this.shebeibianhao=shebeibianhao;
+	}
+
+
+
+	public String getShebeibianhao() {
+		return shebeibianhao;
+	}
+
+
+
+	public void setShebeibianhao(String shebeibianhao) {
+		this.shebeibianhao = shebeibianhao;
 	}
 
 

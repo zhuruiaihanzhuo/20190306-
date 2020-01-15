@@ -34,7 +34,7 @@
   </resultMap>
 
   <select id="queryAll"   resultMap="XiaoFangResult">
-    SELECT * FROM XIAOFANG 
+     select * from  xiaofang a LEFT JOIN   device d ON  a.device_id =d.id 
     <!-- <if test="_parameter !=null and !&quot;&quot;.equals(_parameter)">and SHEBEIBIANHAO=#{_parameter}</if> -->
     
   <!--   <if test="shebeibianhao !=null and !&quot;&quot;.equals(shebeibianhao)">and SHEBEIBIANHAO=#{shebeibianhao}</if>

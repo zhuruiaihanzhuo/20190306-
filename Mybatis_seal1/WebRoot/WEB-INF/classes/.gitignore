@@ -1,5 +1,4 @@
 /action
-/bean
-/struts
-/dao
 /config
+/dao
+/bean

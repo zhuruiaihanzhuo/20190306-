@@ -11,12 +11,29 @@ public class XiaoFang {
 	private String sdshuliang;
 	private String beizhu;
 	private Date date;
+	private String shebeibianhao;
 	
 	
 	
 
 	
 	
+	public String getShebeibianhao() {
+		return shebeibianhao;
+	}
+
+
+
+
+
+	public void setShebeibianhao(String shebeibianhao) {
+		this.shebeibianhao = shebeibianhao;
+	}
+
+
+
+
+
 	public XiaoFang() {
 		super();
 	}
@@ -45,7 +62,7 @@ public class XiaoFang {
 
 
 	public XiaoFang(String jiancharen, String bumen, int device_id,
-			String sqshuliang, String sdshuliang, String beizhu, Date date) {
+			String sqshuliang, String sdshuliang, String beizhu, Date date,String shebeibianhao) {
 		super();
 		this.jiancharen = jiancharen;
 		this.bumen = bumen;
@@ -54,6 +71,7 @@ public class XiaoFang {
 		this.sdshuliang = sdshuliang;
 		this.beizhu = beizhu;
 		this.date = date;
+		this.shebeibianhao=shebeibianhao;
 	}
 
 

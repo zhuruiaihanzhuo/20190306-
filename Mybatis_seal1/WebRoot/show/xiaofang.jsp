@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										</th>
 									
 									
-									<th data-options="field:'device_id',align:'center',width:fixWidth(0.2),sortable:true">设备编号</th>
+									<th data-options="field:'shebeibianhao',align:'center',width:fixWidth(0.2),sortable:true">设备编号</th>
 								<th data-options="field:'beizhu',align:'center',width:fixWidth(0.3),sortable:true">备注</th>
 								</tr>
 							</thead>
